@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional legal intake and call support for growing law firms.">
+  <title>Contact | Warm Transfer Solutions</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Warm Transfer Solutions home"><img src="warm-transfer-solutions-logo.png" alt="Warm Transfer Solutions"></a>
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="" href="index.html">Home</a>
+          <a class="" href="how-it-works.html">How It Works</a>
+          <a class="" href="services.html">Services</a>
+          <a class="active" href="contact.html">Contact</a>
+        </nav>
+        <a class="button" href="contact.html">Tell Us About Your Firm</a>
+      </div>
+    </header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Contact</span>
+    <h1>Tell Us About Your Firm</h1>
+    <p>Tell us how your firm handles new inquiries and where your team needs support.</p>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="container contact-grid">
+    <div>
+      <h2>Explore a Better Intake Process</h2>
+      <p>We will learn about your intake process, call volume, and coverage needs.</p>
+      <div class="contact-details">
+        <div><strong>Email:</strong> YOUR-EMAIL@warmtransfersolutions.com</div>
+        <div><strong>Phone:</strong> YOUR PHONE NUMBER</div>
+        <div><strong>Coverage:</strong> Flexible business-hour and after-hours options</div>
+      </div>
+    </div>
+    <form action="mailto:YOUR-EMAIL@warmtransfersolutions.com" method="post" enctype="text/plain">
+      <div class="field"><label for="name">Name</label><input id="name" name="Name" required></div>
+      <div class="field"><label for="firm">Firm Name</label><input id="firm" name="Firm Name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" name="Email" required></div>
+      <div class="field"><label for="phone">Phone</label><input id="phone" type="tel" name="Phone"></div>
+      <div class="field"><label for="volume">Approximate Monthly Intake Volume</label>
+        <select id="volume" name="Monthly Intake Volume">
+          <option value="">Select one</option>
+          <option>Fewer than 50</option>
+          <option>50–100</option>
+          <option>101–250</option>
+          <option>251–500</option>
+          <option>More than 500</option>
+        </select>
+      </div>
+      <div class="field"><label for="challenge">What is your biggest intake challenge?</label><textarea id="challenge" name="Intake Challenge" required></textarea></div>
+      <button class="button" type="submit">Tell Us About Your Firm</button>
+      <div class="small-note">Replace the placeholder email address before publishing.</div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+    <footer>
+      <div class="container footer-row">
+        <div>© <span id="year"></span> Warm Transfer Solutions. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+
+</body>
+</html>
