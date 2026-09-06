@@ -10,7 +10,7 @@ export const site = {
   description:
     "Professional legal intake and call support for growing law firms. We screen prospective-client calls using your firm's approved criteria and deliver qualified leads to your team.",
   // TODO: replace before launch
-  url: "https://warmtransfersolutions.com",
+  url: "https://www.warmtransfersolutions.com",
   email: "YOUR-EMAIL@warmtransfersolutions.com",
   phone: "YOUR PHONE NUMBER",
   coverage: "Flexible business-hour and after-hours options",
