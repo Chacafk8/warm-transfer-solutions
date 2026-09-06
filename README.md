@@ -30,22 +30,30 @@ Other scripts:
 
 ## Before you launch
 
-### 1. Replace the contact placeholders
+### 1. Contact details
 
 Everything user-facing reads from a single file — [`lib/site.ts`](./lib/site.ts):
 
 ```ts
 export const site = {
-  url: "https://warmtransfersolutions.com",
-  email: "YOUR-EMAIL@warmtransfersolutions.com",   // ← replace
-  phone: "YOUR PHONE NUMBER",                      // ← replace
+  url: "https://www.warmtransfersolutions.com",  // www is canonical
+  email: "info@warmtransfersolutions.com",       // set
+  phone: "",                                     // optional — see below
   ...
 };
 ```
 
-Update `email`, `phone`, and `url`. The amber "before launch" notice on the
-contact page disappears on its own once both placeholders are gone, and the
-email/phone become real `mailto:` / `tel:` links in the footer.
+`email` and `url` are set. `phone` is **optional**: while it is empty the phone
+row is omitted from the contact page and the footer entirely, rather than
+showing a placeholder to visitors. Add a number in display form and the row
+returns with a working `tel:` link:
+
+```ts
+phone: "(555) 555-0100",
+```
+
+The apex domain 308-redirects to `www` in Vercel, so `url` points at `www` —
+that keeps the sitemap, canonical tags, and `og:url` off a redirect.
 
 ### 2. Replace the Privacy Policy and Terms
 
@@ -86,16 +94,29 @@ the figures.
 
 ---
 
-## Deploying to Vercel
+## Deploying
 
-1. Push this branch to GitHub.
-2. In Vercel, **Add New → Project** and import the repository.
-3. Framework preset is detected as Next.js — no build settings to change
-   (build `next build`, output `.next`).
-4. Add the contact-form environment variables under **Settings → Environment
-   Variables** if you completed step 3 above.
-5. Deploy, then add your custom domain under **Settings → Domains** and update
-   `site.url` in `lib/site.ts` to match.
+The Vercel project (`warmtransfer-website`) is connected to this repository, so
+deployment is automatic:
+
+- **Push to `main`** → production build at `www.warmtransfersolutions.com`
+- **Push to any other branch** → preview deployment at its own URL
+
+No manual upload step. Framework preset is Next.js; build settings are detected
+(`next build`, output `.next`) and should not be overridden.
+
+Contact-form credentials, when you want them, go under **Settings →
+Environment Variables** (see step 3 above).
+
+### Domains
+
+| Host | Role |
+| --- | --- |
+| `www.warmtransfersolutions.com` | production |
+| `warmtransfersolutions.com` | 308 redirect to `www` |
+
+DNS is at GoDaddy: an `A` record on `@` pointing at Vercel, and a `CNAME` on
+`www`. If you change the canonical host, update `site.url` to match.
 
 ---
 
