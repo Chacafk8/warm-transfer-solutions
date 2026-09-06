@@ -3,7 +3,7 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { ContactForm } from "@/components/contact-form";
 import { SectionHeading } from "@/components/ui";
-import { contactIsConfigured, site } from "@/lib/site";
+import { hasEmail, hasPhone, phoneHref, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -12,14 +12,14 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+// The phone row is dropped entirely when no number is configured, rather
+// than rendering a placeholder to visitors.
 const details = [
-  { label: "Email", value: site.email, href: `mailto:${site.email}` },
-  {
-    label: "Phone",
-    value: site.phone,
-    href: `tel:${site.phone.replace(/[^\d+]/g, "")}`,
-  },
-  { label: "Coverage", value: site.coverage },
+  { label: "Email", value: site.email, href: `mailto:${site.email}`, linked: hasEmail },
+  ...(hasPhone
+    ? [{ label: "Phone", value: site.phone, href: phoneHref, linked: true }]
+    : []),
+  { label: "Coverage", value: site.coverage, href: undefined, linked: false },
 ];
 
 export default function ContactPage() {
@@ -69,7 +69,7 @@ export default function ContactPage() {
                       {detail.label}
                     </dt>
                     <dd className="mt-1.5 text-[0.9375rem] font-medium text-navy-800">
-                      {detail.href && contactIsConfigured ? (
+                      {detail.href && detail.linked ? (
                         <a
                           href={detail.href}
                           className="transition-colors hover:text-teal-700"
@@ -84,10 +84,10 @@ export default function ContactPage() {
                 ))}
               </dl>
 
-              {!contactIsConfigured && (
+              {!hasEmail && (
                 <p className="mt-6 rounded-2xl bg-amber-50 px-4 py-3 text-xs leading-relaxed text-amber-900 ring-1 ring-inset ring-amber-600/20">
                   <strong className="font-semibold">Before launch:</strong> replace the
-                  placeholder email and phone number in{" "}
+                  placeholder email address in{" "}
                   <code className="rounded bg-amber-100 px-1 py-0.5 font-mono">
                     lib/site.ts
                   </code>

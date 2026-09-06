@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CTA_LABEL, contactIsConfigured, nav, site } from "@/lib/site";
+import { CTA_LABEL, hasEmail, hasPhone, nav, phoneHref, site } from "@/lib/site";
 import { Arrow } from "./ui";
 
 export function SiteFooter() {
@@ -61,7 +61,7 @@ export function SiteFooter() {
             </h2>
             <ul className="mt-5 space-y-3 text-[0.9375rem]">
               <li>
-                {contactIsConfigured ? (
+                {hasEmail ? (
                   <a
                     href={`mailto:${site.email}`}
                     className="transition-colors hover:text-white"
@@ -72,18 +72,13 @@ export function SiteFooter() {
                   <span className="text-white/40">{site.email}</span>
                 )}
               </li>
-              <li>
-                {contactIsConfigured ? (
-                  <a
-                    href={`tel:${site.phone.replace(/[^\d+]/g, "")}`}
-                    className="transition-colors hover:text-white"
-                  >
+              {hasPhone && (
+                <li>
+                  <a href={phoneHref} className="transition-colors hover:text-white">
                     {site.phone}
                   </a>
-                ) : (
-                  <span className="text-white/40">{site.phone}</span>
-                )}
-              </li>
+                </li>
+              )}
               <li className="pt-1 text-white/45">{site.coverage}</li>
             </ul>
           </div>

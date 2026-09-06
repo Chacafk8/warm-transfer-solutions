@@ -66,7 +66,10 @@ export async function POST(request: Request) {
 
   // No mail provider wired up yet — tell the client so it can offer the
   // mailto fallback rather than silently dropping the enquiry.
-  if (!apiKey || !from || to.startsWith("YOUR-EMAIL")) {
+  // Validate the actual recipient, which may come from the env override.
+  const toIsUsable = to.includes("@") && !to.startsWith("YOUR-EMAIL");
+
+  if (!apiKey || !from || !toIsUsable) {
     console.warn(
       "[contact] Mail delivery is not configured. Set RESEND_API_KEY, CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL.",
     );
