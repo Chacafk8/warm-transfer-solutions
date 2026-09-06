@@ -1,0 +1,145 @@
+# Warm Transfer Solutions
+
+Marketing site for Warm Transfer Solutions — legal intake and call support for
+growing law firms. Built with **Next.js 16** (App Router), **React 19**,
+**TypeScript**, and **Tailwind CSS v4**, and set up to deploy on **Vercel**.
+
+The original static HTML template is preserved under [`legacy/`](./legacy) for
+reference; nothing in that folder is built or served.
+
+---
+
+## Getting started
+
+```bash
+npm install
+npm run dev        # http://localhost:3000
+```
+
+Other scripts:
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Local dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint |
+| `npm run typecheck` | `tsc --noEmit` |
+
+---
+
+## Before you launch
+
+### 1. Replace the contact placeholders
+
+Everything user-facing reads from a single file — [`lib/site.ts`](./lib/site.ts):
+
+```ts
+export const site = {
+  url: "https://warmtransfersolutions.com",
+  email: "YOUR-EMAIL@warmtransfersolutions.com",   // ← replace
+  phone: "YOUR PHONE NUMBER",                      // ← replace
+  ...
+};
+```
+
+Update `email`, `phone`, and `url`. The amber "before launch" notice on the
+contact page disappears on its own once both placeholders are gone, and the
+email/phone become real `mailto:` / `tel:` links in the footer.
+
+### 2. Replace the Privacy Policy and Terms
+
+`/privacy` and `/terms` are **placeholders**. The sections in
+`app/privacy/page.tsx` and `app/terms/page.tsx` are drafting prompts, not legal
+language — they need to be replaced with copy reviewed by counsel that reflects
+your actual practices. Both pages carry a visible warning banner and are set to
+`noindex` until you do.
+
+Pay particular attention to the **call recording** section: consent rules vary
+by state and need jurisdiction-specific review.
+
+### 3. Wire up the contact form (optional)
+
+The form at `/contact` posts to `app/api/contact/route.ts`. Until an email
+provider is configured it returns `503` and the form shows a fallback pointing
+the visitor at your email address — no enquiry is silently dropped.
+
+To enable delivery, set these environment variables (see `.env.example`):
+
+| Variable | Notes |
+| --- | --- |
+| `RESEND_API_KEY` | API key from [resend.com](https://resend.com) |
+| `CONTACT_FROM_EMAIL` | Sender, on a domain verified with Resend |
+| `CONTACT_TO_EMAIL` | Where enquiries land (defaults to `site.email`) |
+
+The route validates input, rejects bots with a honeypot field, and sets
+`reply_to` to the enquirer so you can reply directly.
+
+Prefer a different provider? Swap the `fetch` call in
+`app/api/contact/route.ts` — the rest of the route is provider-agnostic.
+
+### 4. Review the sample dashboard figures
+
+The partner-dashboard mockups on `/` and `/services` use illustrative numbers
+and carry a "not performance claims" disclaimer. Keep the disclaimer if you keep
+the figures.
+
+---
+
+## Deploying to Vercel
+
+1. Push this branch to GitHub.
+2. In Vercel, **Add New → Project** and import the repository.
+3. Framework preset is detected as Next.js — no build settings to change
+   (build `next build`, output `.next`).
+4. Add the contact-form environment variables under **Settings → Environment
+   Variables** if you completed step 3 above.
+5. Deploy, then add your custom domain under **Settings → Domains** and update
+   `site.url` in `lib/site.ts` to match.
+
+---
+
+## Project structure
+
+```
+app/
+  layout.tsx           Root layout: fonts, metadata, JSON-LD, header/footer
+  page.tsx             Home
+  how-it-works/        Process, disqualification examples, role boundaries
+  services/            Service grid, customization, portal, FAQ
+  contact/             Contact details + form
+  privacy/ terms/      Legal placeholders (noindex)
+  api/contact/         Form handler
+  globals.css          Design tokens, utilities, animations
+  icon.png             Favicon (generated from the logo mark)
+components/
+  site-header.tsx      Sticky header that condenses on scroll
+  site-footer.tsx
+  dashboard-preview.tsx  Animated partner-portal mockup
+  faq.tsx              Accessible accordion
+  reveal.tsx           Scroll-reveal wrapper
+  ui.tsx               Buttons, headings, aurora background
+lib/site.ts            Contact details, nav, metadata — edit this first
+legacy/                Original static HTML template (not built)
+```
+
+## Design notes
+
+Brand palette is taken from the logo and defined as Tailwind theme tokens in
+`app/globals.css`:
+
+| Token | Hex |
+| --- | --- |
+| `navy-800` | `#071A4D` |
+| `brand-600` | `#0B4FA3` |
+| `teal-500` | `#09A8BD` |
+| `teal-400` | `#26C1D1` |
+
+Type is Inter, with Instrument Serif italic used for the accent words in
+headings. Dark sections use an animated gradient "aurora" field with a dot-grid
+overlay; content fades in on scroll via `IntersectionObserver`.
+
+Accessibility and robustness: `prefers-reduced-motion` disables all animation
+and count-ups, a `<noscript>` rule keeps content visible without JavaScript,
+there's a skip-to-content link, and the accordion and mobile menu are keyboard
+operable with correct ARIA state.

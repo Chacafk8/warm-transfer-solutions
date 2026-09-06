@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Warm Transfer Solutions — design tokens
+   Brand palette derived from the logo:
+     navy #071A4D · blue #0B4FA3 · teal #09A8BD · bright teal #26C1D1
+------------------------------------------------------------------- */
+@theme {
+  --color-navy-50: #eef2fb;
+  --color-navy-100: #d6dff4;
+  --color-navy-200: #adbde8;
+  --color-navy-300: #7e93d6;
+  --color-navy-400: #4a63b4;
+  --color-navy-500: #233a86;
+  --color-navy-600: #12276a;
+  --color-navy-700: #0b1f5b;
+  --color-navy-800: #071A4D;
+  --color-navy-900: #051238;
+  --color-navy-950: #030b23;
+
+  --color-brand-50: #eaf3ff;
+  --color-brand-100: #d3e6ff;
+  --color-brand-200: #a9ccff;
+  --color-brand-300: #74acff;
+  --color-brand-400: #3d85f5;
+  --color-brand-500: #1663d6;
+  --color-brand-600: #0B4FA3;
+  --color-brand-700: #093f83;
+  --color-brand-800: #0a3468;
+  --color-brand-900: #0b2b53;
+
+  --color-teal-50: #e7fbfd;
+  --color-teal-100: #c4f4f9;
+  --color-teal-200: #8fe9f3;
+  --color-teal-300: #4fd8e9;
+  --color-teal-400: #26C1D1;
+  --color-teal-500: #09A8BD;
+  --color-teal-600: #068699;
+  --color-teal-700: #0a6b7b;
+  --color-teal-800: #0e5764;
+  --color-teal-900: #114955;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+
+  --radius-4xl: 2rem;
+  --radius-5xl: 2.5rem;
+
+  --shadow-glow: 0 0 0 1px rgb(255 255 255 / 0.06),
+    0 20px 60px -20px rgb(9 168 189 / 0.35);
+  --shadow-lift: 0 1px 2px rgb(7 26 77 / 0.06),
+    0 12px 32px -12px rgb(7 26 77 / 0.18);
+  --shadow-lift-lg: 0 1px 2px rgb(7 26 77 / 0.06),
+    0 28px 60px -24px rgb(7 26 77 / 0.28);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- base ---------- */
+@layer base {
+  * {
+    border-color: color-mix(in oklab, var(--color-navy-800) 12%, transparent);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: #ffffff;
+    color: var(--color-navy-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-teal-300);
+    color: var(--color-navy-900);
+  }
+
+  h1, h2, h3, h4 {
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* ---------- utilities ---------- */
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Gradient text used for accent words in headings */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-teal-400) 0%,
+    var(--color-teal-300) 45%,
+    var(--color-brand-300) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft "aurora" field behind dark sections */
+@utility aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Fine dot grid overlay */
+@utility dot-grid {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(255 255 255 / 0.09) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+}
+
+@utility dot-grid-dark {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgb(7 26 77 / 0.08) 1px,
+    transparent 0
+  );
+  background-size: 28px 28px;
+}
+
+/* Frosted card on dark backgrounds */
+@utility glass {
+  background: linear-gradient(
+    160deg,
+    rgb(255 255 255 / 0.09),
+    rgb(255 255 255 / 0.03)
+  );
+  border: 1px solid rgb(255 255 255 / 0.12);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+/* ---------- scroll reveal ---------- */
+@layer components {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s var(--ease-out-soft),
+      transform 0.7s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- keyframes ---------- */
+@keyframes drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -4%, 0) scale(1.08); }
+}
+
+@keyframes drift-slow {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(-4%, 3%, 0) scale(1); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  70% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-drift { animation: drift 18s ease-in-out infinite; }
+.animate-drift-slow { animation: drift-slow 24s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
+.animate-marquee { animation: marquee 38s linear infinite; }
