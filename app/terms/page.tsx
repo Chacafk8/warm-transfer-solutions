@@ -399,11 +399,11 @@ const sections: LegalSection[] = [
           than read down.
         </p>
         <p>
-          2. <strong>Our buyers are lawyers.</strong> Alert sells to the same market,
-          but every firm that reads this will negotiate it, and a {usd(500)} ceiling
-          on a service whose failure mode is a lost case is the kind of term that
-          stalls a deal. Consider whether the published default should be higher with
-          the low cap reserved for the Service Plan.
+          2. <strong>The published figure stands as the floor.</strong> Firms will
+          negotiate it, and a higher cap can be agreed in an individual Service Plan —
+          which is the right way round, since a published number can be conceded in a
+          deal but never clawed back. Counsel should confirm the Service Plan can
+          raise the cap without disturbing the rest of this section.
         </p>
         <p>
           3. <strong>The fourteen-day notice window does most of the work.</strong> A

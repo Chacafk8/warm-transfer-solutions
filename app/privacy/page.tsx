@@ -217,32 +217,31 @@ const sections: LegalSection[] = [
           matching what Alert publishes and defensible in this market.
         </p>
         <p>
-          <strong>These are now commitments, so the systems have to honour them.</strong>{" "}
-          A published 90-day recording period that our storage does not actually
-          enforce is worse than no period at all — it becomes a documented breach of
-          our own policy. Confirm deletion is automated rather than manual before this
-          page publishes, and if the systems cannot yet do it, change the numbers to
-          what they can.
+          <strong>These are commitments, and the CRM is being configured to enforce
+          them automatically.</strong> That work needs to be verified before this page
+          publishes: a stated 90-day recording period that storage does not actually
+          honour becomes a documented breach of our own policy, and it is the first
+          thing opposing counsel would ask for.
         </p>
         <p>
-          <strong>There is a tension to resolve here.</strong> The business wants to
-          retain intake data as a record of what was actually said and decided, which
-          is a sound instinct — it is the evidence if a firm ever disputes how an
-          inquiry was handled. But the periods above are deletion commitments, and
-          the two pull against each other.
+          <strong>The split is deliberate.</strong> The written intake record — what
+          was asked, what was answered, what outcome was reached — is kept for 24
+          months because it is the evidence if a firm ever disputes how an inquiry was
+          handled. The recording goes at 90 days because it carries the consent risk,
+          the storage cost, and the discovery exposure while adding little the written
+          record does not already hold.
         </p>
         <p>
-          The usual resolution is to separate them: keep the <em>intake record</em>
-          (what was asked, what was answered, what outcome was reached) for as long as
-          it is useful as evidence, and delete the <em>recording</em> on a short clock.
-          The recording is the part that carries consent risk, storage cost, and
-          discovery exposure; the written record carries most of the evidential value
-          at a fraction of the risk.
+          One consequence worth being deliberate about: after 90 days a dispute is
+          argued from the written record alone, and that cuts both ways. It protects
+          us from a recording being read against us, and it removes a recording we
+          might have wanted in our defence. The 24-month record is what does the
+          defending, so it needs to be complete and accurate at the point it is
+          written.
         </p>
         <p>
-          Decide the two periods separately on that basis, then confirm whether a firm
-          may instruct a longer period as well as a shorter one, and what happens to
-          records when an account closes.
+          Still to confirm: whether a firm may instruct a longer period as well as a
+          shorter one, and what happens to records when an account closes.
         </p>
       </>
     ),
