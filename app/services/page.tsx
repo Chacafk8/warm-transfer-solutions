@@ -126,32 +126,6 @@ export default function ServicesPage() {
         </p>
       </PageHero>
 
-      {/* ----------------------------- Service grid ------------------------- */}
-      <section className="py-24 lg:py-32">
-        <div className="container-page">
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <Reveal key={service.title} delay={(i % 3) * 100}>
-                  <article className="group h-full rounded-3xl bg-white p-8 shadow-lift ring-1 ring-navy-800/6 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-lift-lg hover:ring-teal-500/25">
-                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 ring-1 ring-inset ring-teal-500/15 transition-colors duration-400 group-hover:bg-linear-to-br group-hover:from-teal-500 group-hover:to-brand-600 group-hover:text-white group-hover:ring-transparent">
-                      <Icon />
-                    </span>
-                    <h2 className="mt-6 text-lg font-semibold text-navy-800">
-                      {service.title}
-                    </h2>
-                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-navy-800/65">
-                      {service.body}
-                    </p>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* --------------------------- Human-centred ------------------------- */}
       <section className="relative isolate overflow-hidden bg-navy-900 py-24 lg:py-32">
         <div className="aurora" aria-hidden="true">
@@ -252,6 +226,32 @@ export default function ServicesPage() {
               </span>
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ----------------------------- Service grid ------------------------- */}
+      <section className="py-24 lg:py-32">
+        <div className="container-page">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <Reveal key={service.title} delay={(i % 3) * 100}>
+                  <article className="group h-full rounded-3xl bg-white p-8 shadow-lift ring-1 ring-navy-800/6 transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-lift-lg hover:ring-teal-500/25">
+                    <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 ring-1 ring-inset ring-teal-500/15 transition-colors duration-400 group-hover:bg-linear-to-br group-hover:from-teal-500 group-hover:to-brand-600 group-hover:text-white group-hover:ring-transparent">
+                      <Icon />
+                    </span>
+                    <h2 className="mt-6 text-lg font-semibold text-navy-800">
+                      {service.title}
+                    </h2>
+                    <p className="mt-3 text-[0.9375rem] leading-relaxed text-navy-800/65">
+                      {service.body}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
