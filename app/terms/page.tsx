@@ -183,8 +183,9 @@ const sections: LegalSection[] = [
           overnight surcharge — nothing else.
         </p>
         <p>
-          The only other amount that can appear on an invoice is the card processing
-          fee described in section 6, which you avoid entirely by paying by check.
+          The only other amount that can appear on an invoice is the Stripe
+          processing fee described in section 6, which applies to card and ACH
+          payments and which you avoid entirely by paying by check.
         </p>
       </>
     ),
@@ -211,9 +212,10 @@ const sections: LegalSection[] = [
           <strong>Payment is due within 15 days of the invoice date.</strong>
         </p>
         <p>
-          <strong>How you pay.</strong> Card payments are processed by Stripe and
-          carry Stripe&rsquo;s processing fee. Enrolling in automatic payment reduces
-          that fee by half. Paying by check carries no processing fee.
+          <strong>How you pay.</strong> Payments by card and by ACH are processed
+          through Stripe and carry Stripe&rsquo;s processing fee for that method.
+          Enrolling in automatic payment reduces that fee by half. Paying by check
+          carries no processing fee.
         </p>
         <p>
           <strong>Late payment.</strong> An invoice still unpaid 30 days after the
@@ -229,9 +231,10 @@ const sections: LegalSection[] = [
       <>
         <p>
           <strong>The processing fee is stated without a number, deliberately.</strong>{" "}
-          It is Stripe&rsquo;s fee rather than ours, so quoting a figure we do not set
-          risks being wrong when Stripe changes it. Confirm whether counsel would
-          rather state the current rate explicitly.
+          It is Stripe&rsquo;s fee rather than ours, the rate differs between card and
+          ACH, and quoting figures we do not set risks being wrong when Stripe changes
+          them. Confirm whether counsel would rather state the current rates
+          explicitly, and whether the autopay reduction applies to both methods.
         </p>
         <p>
           <strong>The pricing page does not yet mention it.</strong> That page claims
