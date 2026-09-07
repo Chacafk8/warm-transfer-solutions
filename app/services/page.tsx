@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 import { CtaBand } from "@/components/cta-band";
 import { DashboardPreview } from "@/components/dashboard-preview";
 import { Faq, type FaqItem } from "@/components/faq";
-import { Button, Check, SectionHeading } from "@/components/ui";
+import { Button, Check, Eyebrow, SectionHeading } from "@/components/ui";
 import { CTA_LABEL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -125,6 +125,108 @@ export default function ServicesPage() {
           Flexible intake support, lead delivery, and reporting for growing law firms.
         </p>
       </PageHero>
+
+      {/* --------------------------- Human-centred ------------------------- */}
+      <section className="relative isolate overflow-hidden bg-navy-900 py-24 lg:py-32">
+        <div className="aurora" aria-hidden="true">
+          <div className="absolute -top-40 left-0 size-[34rem] animate-drift rounded-full bg-brand-600/30 blur-[120px]" />
+          <div className="absolute -bottom-32 right-0 size-[30rem] animate-drift-slow rounded-full bg-teal-500/20 blur-[120px]" />
+          <div className="absolute inset-0 dot-grid opacity-60" />
+        </div>
+
+        <div className="container-page relative">
+          <Reveal className="max-w-3xl">
+            <Eyebrow tone="light">Human-centred by design</Eyebrow>
+            <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+              The first voice they hear is a{" "}
+              <span className="font-serif italic text-gradient">person</span>
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-navy-100/75">
+              Someone calling your firm is often days into the worst thing that has
+              happened to them. They are in pain, out of work, and already fielding
+              calls from an adjuster who is not on their side. That is not a moment
+              for a phone tree, or for a bot asking them to state their reason for
+              calling.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-navy-100/75">
+              It is in our name. A warm transfer is a live handoff with context —
+              not a call bounced to whoever picks up.
+            </p>
+          </Reveal>
+
+          {/* Where the line sits: people in front, software behind. */}
+          <div className="mt-16 grid gap-6 lg:grid-cols-2">
+            <Reveal delay={120}>
+              <div className="glass h-full rounded-3xl p-8 sm:p-10">
+                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-300 ring-1 ring-inset ring-teal-400/30">
+                  <PersonIcon />
+                </span>
+                <h3 className="mt-6 text-xl font-semibold text-white">
+                  A person handles the conversation
+                </h3>
+                <ul className="mt-6 space-y-4">
+                  {[
+                    "Listening for distress, hesitation, and confusion",
+                    "Knowing when to slow down before the next question",
+                    "Hearing what someone means, not just what they said",
+                    "Treating a caller like a person, not a form to complete",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3.5 border-b border-white/8 pb-4 text-[0.9375rem] leading-relaxed text-navy-100/75 last:border-0 last:pb-0"
+                    >
+                      <span
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-teal-400"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div className="glass h-full rounded-3xl p-8 sm:p-10">
+                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/8 text-navy-100/70 ring-1 ring-inset ring-white/15">
+                  <ChipIcon />
+                </span>
+                <h3 className="mt-6 text-xl font-semibold text-white">
+                  Software handles everything behind it
+                </h3>
+                <ul className="mt-6 space-y-4">
+                  {[
+                    "Lead delivery the moment an inquiry qualifies",
+                    "Completed intake summaries, written up automatically",
+                    "Outcomes and reporting in the partner portal",
+                    "API integration straight into your system",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3.5 border-b border-white/8 pb-4 text-[0.9375rem] leading-relaxed text-navy-100/75 last:border-0 last:pb-0"
+                    >
+                      <span
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-navy-300"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={280}>
+            <p className="mt-14 text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+              We automate the paperwork.{" "}
+              <span className="font-serif italic text-gradient">
+                Never the conversation.
+              </span>
+            </p>
+          </Reveal>
+        </div>
+      </section>
 
       {/* ----------------------------- Service grid ------------------------- */}
       <section className="py-24 lg:py-32">
@@ -337,6 +439,24 @@ function GridIcon() {
       <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6" />
       <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6" />
       <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6" />
+    </svg>
+  );
+}
+
+function PersonIcon() {
+  return (
+    <svg {...iconProps} className="size-6">
+      <circle cx="12" cy="8" r="3.6" />
+      <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+    </svg>
+  );
+}
+
+function ChipIcon() {
+  return (
+    <svg {...iconProps} className="size-6">
+      <rect x="6.5" y="6.5" width="11" height="11" rx="2" />
+      <path d="M10 3v3.5M14 3v3.5M10 17.5V21M14 17.5V21M3 10h3.5M3 14h3.5M17.5 10H21M17.5 14H21" />
     </svg>
   );
 }
