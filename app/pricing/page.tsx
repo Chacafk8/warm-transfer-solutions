@@ -102,11 +102,12 @@ export default function PricingPage() {
                 title="One formula, published in full"
               >
                 <p>
-                  There is no separate onboarding line, no per-lead charge, and no
-                  rate that changes once you are past your allowance. Your monthly
-                  total is the plan base plus any minutes beyond what the plan
-                  includes — with the overnight surcharge added on top of any calls
-                  handled between {OVERNIGHT_WINDOW}.
+                  Your monthly total is the plan base, plus any minutes beyond
+                  what the plan includes charged at that plan&rsquo;s published
+                  per-minute rate, plus the overnight surcharge on calls handled
+                  between {OVERNIGHT_WINDOW}. Going over your allowance costs the
+                  rate printed on the card above — a flat number that does not
+                  climb the further past it you go.
                 </p>
               </SectionHeading>
 
