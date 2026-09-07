@@ -37,7 +37,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Are there any other fees?",
-    a: `No. There is no setup or onboarding fee, no per-lead charge, and no cost to integrate with your system through our API. The plan base, the per-minute rate for minutes past your allowance, and the overnight surcharge are the entire bill — which is why we can publish all of them on one page.`,
+    a: `No setup or onboarding fee, no per-lead charge, and no cost to integrate with your system through our API. What we charge for the service is the plan base, the per-minute rate past your allowance, and the overnight surcharge — which is why we can publish all of it on one page. The only other line that can appear on an invoice is Stripe's card processing fee if you choose to pay by card; enrolling in autopay halves it, and paying by check avoids it. That one is not ours and we do not mark it up.`,
   },
   {
     q: "Do I pay for robocalls and wrong numbers?",

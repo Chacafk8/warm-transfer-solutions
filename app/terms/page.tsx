@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal-page";
 import { site } from "@/lib/site";
@@ -23,10 +24,12 @@ const sections: LegalSection[] = [
     body: (
       <>
         <p>
-          These terms are an agreement between you (the &ldquo;Firm&rdquo;) and Warm
-          Transfer Solutions (&ldquo;we&rdquo;, &ldquo;us&rdquo;). They govern your
-          use of this website and the intake and call-handling services we provide
-          under any service plan agreed between us (your &ldquo;Service Plan&rdquo;).
+          These terms are an agreement between you (the &ldquo;Firm&rdquo;) and
+          WarmTransfer Solutions, LLC, a Wyoming limited liability company trading as
+          Warm Transfer Solutions (&ldquo;we&rdquo;, &ldquo;us&rdquo;). They govern
+          your use of this website and the intake and call-handling services we
+          provide under any service plan agreed between us (your &ldquo;Service
+          Plan&rdquo;).
         </p>
         <p>
           Your Service Plan sets out the plan you have selected, your billing term,
@@ -43,8 +46,10 @@ const sections: LegalSection[] = [
     ),
     flag: (
       <p>
-        Confirm the legal entity name and type for the opening line, and confirm the
-        precedence rule. We have made the Service Plan govern over these terms, which
+        Note the registered name is WarmTransfer Solutions, LLC — one word — while
+        the site brands as Warm Transfer Solutions throughout. The clause names both,
+        which is the safe approach, but confirm that is how counsel wants it stated.
+        Confirm also the precedence rule. We have made the Service Plan govern over these terms, which
         is the opposite of Alert&rsquo;s choice — it suits us better because our
         plans are published and negotiated per firm, but it does mean a Service Plan
         can override protections here.
@@ -173,8 +178,13 @@ const sections: LegalSection[] = [
         </p>
         <p>
           <strong>Fees we do not have.</strong> There is no{" "}
-          {NO_FEES.map((f) => f.toLowerCase()).join(" fee, no ")} fee. Your bill is
-          the plan base, minutes beyond your allowance, and the overnight surcharge.
+          {NO_FEES.map((f) => f.toLowerCase()).join(" fee, no ")} fee. What we charge
+          for the service is the plan base, minutes beyond your allowance, and the
+          overnight surcharge — nothing else.
+        </p>
+        <p>
+          The only other amount that can appear on an invoice is the card processing
+          fee described in section 6, which you avoid entirely by paying by check.
         </p>
       </>
     ),
@@ -193,8 +203,21 @@ const sections: LegalSection[] = [
     body: (
       <>
         <p>
-          We invoice monthly. Base charges are billed for the coming month and any
+          We invoice monthly. Your billing cycle runs from the start date shown on
+          your Service Plan. Base charges are billed for the coming month, and any
           overage and overnight charges for the month just ended.
+        </p>
+        <p>
+          <strong>Payment is due within 15 days of the invoice date.</strong>
+        </p>
+        <p>
+          <strong>How you pay.</strong> Card payments are processed by Stripe and
+          carry Stripe&rsquo;s processing fee. Enrolling in automatic payment reduces
+          that fee by half. Paying by check carries no processing fee.
+        </p>
+        <p>
+          <strong>Late payment.</strong> An invoice still unpaid 30 days after the
+          invoice date incurs a late fee of {usd(50)}.
         </p>
         <p>
           If an invoice is not paid when due we may suspend the service after notice
@@ -203,12 +226,26 @@ const sections: LegalSection[] = [
       </>
     ),
     flag: (
-      <p>
-        Confirm the actual payment terms: due date, accepted methods, whether
-        autopay is required, any card surcharge, interest on late amounts, and how
-        much notice precedes suspension. The draft above is deliberately minimal
-        because these are commercial decisions, not drafting ones.
-      </p>
+      <>
+        <p>
+          <strong>The processing fee is stated without a number, deliberately.</strong>{" "}
+          It is Stripe&rsquo;s fee rather than ours, so quoting a figure we do not set
+          risks being wrong when Stripe changes it. Confirm whether counsel would
+          rather state the current rate explicitly.
+        </p>
+        <p>
+          <strong>The pricing page does not yet mention it.</strong> That page claims
+          every rate we charge is published, so a card fee — even one that is
+          avoidable and not ours — belongs there as a footnote. Section 5 has been
+          reworded here to distinguish what we charge for the service from what a
+          payment method costs; the pricing page should carry the same distinction.
+        </p>
+        <p>
+          Also confirm: whether the {usd(50)} late fee recurs monthly or is charged
+          once, whether interest runs in addition, how much notice precedes
+          suspension, and whether autopay enrolment is offered on all plans.
+        </p>
+      </>
     ),
   },
   {
@@ -229,6 +266,12 @@ const sections: LegalSection[] = [
           month-to-month rates for your plan.
         </p>
         <p>
+          <strong>Ending a twelve-month term early.</strong> If you end the plan
+          before the term is up, the base charges for the remainder of the term become
+          due immediately. The twelve-month rates are lower than the month-to-month
+          rates because of the commitment, and the balance reflects it.
+        </p>
+        <p>
           We may end a Service Plan on notice, or immediately where use of the service
           is unlawful, abusive toward our team, or in breach of these terms.
         </p>
@@ -237,9 +280,19 @@ const sections: LegalSection[] = [
     flag: (
       <>
         <p>
-          Confirm the notice period for month-to-month cancellation, and what happens
-          on early termination of a twelve-month term — whether the balance of the
-          term is payable.
+          <strong>Early termination is drafted as the full remaining base charges,
+          per instruction. Counsel should pressure-test it.</strong> A clause taking
+          100% of the remaining term can be attacked as a penalty rather than
+          enforceable liquidated damages, particularly where we save the cost of
+          performing. If it is struck down we may recover nothing rather than
+          something, so a percentage — or acceleration of base charges only, which is
+          how it is drafted — may hold up better than a figure a court reads as
+          punitive.
+        </p>
+        <p>
+          Note the drafting deliberately accelerates <em>base charges only</em>, not
+          projected overage, since projected overage would be the weakest part of such
+          a claim. Confirm the notice period for month-to-month cancellation.
         </p>
         <p>
           Also confirm the roll-off. We have drafted the twelve-month term as
@@ -510,13 +563,13 @@ const sections: LegalSection[] = [
           how far it reaches are for a court, not the arbitrator.
         </p>
         <p>
-          <strong>Seat and venue.</strong> The arbitration will be seated in
-          [ county, state ], and judgment on the award may be entered in any court of
+          <strong>Seat and venue.</strong> The arbitration will be seated in the
+          State of Wyoming, and judgment on the award may be entered in any court of
           competent jurisdiction.
         </p>
         <p>
           <strong>Governing law.</strong> These terms are governed by the laws of the
-          State of [ Wyoming ], without regard to conflict-of-law rules.
+          State of Wyoming, without regard to conflict-of-law rules.
         </p>
         <p>
           This section survives termination of your Service Plan.
@@ -569,8 +622,9 @@ const sections: LegalSection[] = [
           waiver enforceable. Confirm the placement and wording are sufficient.
         </p>
         <p>
-          4. Set the seat and venue, and decide how arbitration costs and fees are
-          allocated — including whether we pay the filing fee in smaller disputes,
+          4. The seat is drafted as the State of Wyoming to match the governing
+          law, without naming a county — confirm whether a specific locale is needed
+          for AAA purposes. Decide also how arbitration costs and fees are allocated — including whether we pay the filing fee in smaller disputes,
           which materially improves enforceability. Note a Wyoming seat may be
           resisted by firms elsewhere even where Wyoming law is accepted.
         </p>
@@ -590,11 +644,14 @@ const sections: LegalSection[] = [
 
 export default function TermsPage() {
   return (
+    <Suspense>
     <LegalPage
       eyebrow="Terms"
       title="Terms of Service"
+      updated="September 2026"
       intro="The terms on which we provide intake and call-handling services, and the terms governing use of this website."
       sections={sections}
     />
+    </Suspense>
   );
 }

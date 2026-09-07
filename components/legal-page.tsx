@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 import { PageHero } from "./page-hero";
 import { Reveal } from "./reveal";
 
@@ -26,6 +29,10 @@ export function LegalPage({
   sections: LegalSection[];
   updated?: string;
 }) {
+  // Counsel notes are internal. They render only for someone who asks for them
+  // with ?review=1, never for an ordinary visitor.
+  const review = useSearchParams().get("review") === "1";
+
   return (
     <>
       <PageHero eyebrow={eyebrow} title={title}>
@@ -35,6 +42,7 @@ export function LegalPage({
       <section className="py-24 lg:py-28">
         <div className="container-page">
           <div className="mx-auto max-w-3xl">
+            {review && (
             <Reveal>
               <div className="rounded-3xl bg-amber-50 p-7 ring-1 ring-inset ring-amber-600/20 sm:p-8">
                 <div className="flex items-start gap-4">
@@ -70,6 +78,7 @@ export function LegalPage({
                 </div>
               </div>
             </Reveal>
+            )}
 
             <div className="mt-12 space-y-10">
               {sections.map((section, i) => (
@@ -82,7 +91,7 @@ export function LegalPage({
                       {section.body}
                     </div>
 
-                    {section.flag && (
+                    {review && section.flag && (
                       <div className="mt-5 rounded-2xl bg-amber-50 px-5 py-4 ring-1 ring-inset ring-amber-600/20">
                         <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-amber-800">
                           For counsel

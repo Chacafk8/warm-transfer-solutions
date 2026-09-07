@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { LegalPage, type LegalSection } from "@/components/legal-page";
 import { site } from "@/lib/site";
@@ -333,11 +334,14 @@ const sections: LegalSection[] = [
 
 export default function PrivacyPage() {
   return (
+    <Suspense>
     <LegalPage
       eyebrow="Privacy"
       title="Privacy Policy"
+      updated="September 2026"
       intro="How we handle information from visitors to this website, and from callers whose calls we handle on behalf of a client law firm."
       sections={sections}
     />
+    </Suspense>
   );
 }
