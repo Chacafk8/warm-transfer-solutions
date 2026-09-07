@@ -127,42 +127,48 @@ export default function ServicesPage() {
       </PageHero>
 
       {/* --------------------------- Human-centred ------------------------- */}
-      <section className="relative isolate overflow-hidden bg-navy-900 py-24 lg:py-32">
-        <div className="aurora" aria-hidden="true">
-          <div className="absolute -top-40 left-0 size-[34rem] animate-drift rounded-full bg-brand-600/30 blur-[120px]" />
-          <div className="absolute -bottom-32 right-0 size-[30rem] animate-drift-slow rounded-full bg-teal-500/20 blur-[120px]" />
-          <div className="absolute inset-0 dot-grid opacity-60" />
-        </div>
+      {/* Light treatment: this sits directly under the dark hero, so a second
+          navy section would run the top of the page into one long slab. */}
+      <section className="relative overflow-hidden bg-navy-50/70 py-24 lg:py-32">
+        <div
+          className="pointer-events-none absolute inset-0 dot-grid-dark opacity-40"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -right-40 top-0 size-[34rem] rounded-full bg-teal-400/10 blur-[120px]"
+          aria-hidden="true"
+        />
 
         <div className="container-page relative">
           <Reveal className="max-w-3xl">
-            <Eyebrow tone="light">Human-centred by design</Eyebrow>
-            <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            <Eyebrow>Human-centred by design</Eyebrow>
+            <h2 className="mt-6 text-3xl font-semibold text-navy-800 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               The first voice they hear is a{" "}
-              <span className="font-serif italic text-gradient">person</span>
+              <span className="font-serif italic text-teal-600">person</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-navy-100/75">
+            <p className="mt-6 text-lg leading-relaxed text-navy-800/65">
               Nobody calls a law firm on a good day. They may be injured, out of
               work, or facing something they have never had to deal with before —
               and they have usually already told the story once to someone who
               wasn&rsquo;t really listening. That is not a moment for a phone tree,
               or for a bot asking them to state their reason for calling.
             </p>
-            <p className="mt-5 text-lg leading-relaxed text-navy-100/75">
+            <p className="mt-5 text-lg leading-relaxed text-navy-800/65">
               It is in our name. Your firm receives the caller&rsquo;s story
               already gathered and written up — not a message slip with a name and
               a number on it.
             </p>
           </Reveal>
 
-          {/* Where the line sits: people in front, software behind. */}
+          {/* Where the line sits: people in front, software behind. The person
+              card carries the teal accent; the software card stays neutral. */}
           <div className="mt-16 grid gap-6 lg:grid-cols-2">
             <Reveal delay={120}>
-              <div className="glass h-full rounded-3xl p-8 sm:p-10">
-                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-500/15 text-teal-300 ring-1 ring-inset ring-teal-400/30">
+              <div className="h-full rounded-3xl bg-white p-8 shadow-lift-lg ring-1 ring-teal-500/25 sm:p-10">
+                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-teal-50 text-teal-600 ring-1 ring-inset ring-teal-500/20">
                   <PersonIcon />
                 </span>
-                <h3 className="mt-6 text-xl font-semibold text-white">
+                <h3 className="mt-6 text-xl font-semibold text-navy-800">
                   A person handles the conversation
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -174,10 +180,10 @@ export default function ServicesPage() {
                   ].map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3.5 border-b border-white/8 pb-4 text-[0.9375rem] leading-relaxed text-navy-100/75 last:border-0 last:pb-0"
+                      className="flex items-start gap-3.5 border-b border-navy-800/6 pb-4 text-[0.9375rem] leading-relaxed text-navy-800/70 last:border-0 last:pb-0"
                     >
                       <span
-                        className="mt-2 size-1.5 shrink-0 rounded-full bg-teal-400"
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-teal-500"
                         aria-hidden="true"
                       />
                       {item}
@@ -188,11 +194,11 @@ export default function ServicesPage() {
             </Reveal>
 
             <Reveal delay={200}>
-              <div className="glass h-full rounded-3xl p-8 sm:p-10">
-                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-white/8 text-navy-100/70 ring-1 ring-inset ring-white/15">
+              <div className="h-full rounded-3xl bg-white p-8 shadow-lift ring-1 ring-navy-800/6 sm:p-10">
+                <span className="inline-flex size-12 items-center justify-center rounded-2xl bg-navy-50 text-navy-800/55 ring-1 ring-inset ring-navy-800/8">
                   <ChipIcon />
                 </span>
-                <h3 className="mt-6 text-xl font-semibold text-white">
+                <h3 className="mt-6 text-xl font-semibold text-navy-800">
                   Software handles everything behind it
                 </h3>
                 <ul className="mt-6 space-y-4">
@@ -204,7 +210,7 @@ export default function ServicesPage() {
                   ].map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3.5 border-b border-white/8 pb-4 text-[0.9375rem] leading-relaxed text-navy-100/75 last:border-0 last:pb-0"
+                      className="flex items-start gap-3.5 border-b border-navy-800/6 pb-4 text-[0.9375rem] leading-relaxed text-navy-800/70 last:border-0 last:pb-0"
                     >
                       <span
                         className="mt-2 size-1.5 shrink-0 rounded-full bg-navy-300"
@@ -219,9 +225,9 @@ export default function ServicesPage() {
           </div>
 
           <Reveal delay={280}>
-            <p className="mt-14 text-center text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+            <p className="mt-14 text-center text-2xl font-semibold tracking-tight text-navy-800 sm:text-3xl">
               We automate the paperwork.{" "}
-              <span className="font-serif italic text-gradient">
+              <span className="font-serif italic text-teal-600">
                 Never the conversation.
               </span>
             </p>
