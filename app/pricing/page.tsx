@@ -28,7 +28,6 @@ const included = [
   "Qualified lead delivery with intake summary",
   "Partner portal with outcomes and reporting",
   "Your choice of coverage hours",
-  "Call recordings where legally permitted",
 ];
 
 const faqs: FaqItem[] = [
