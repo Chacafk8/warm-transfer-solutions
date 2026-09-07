@@ -164,11 +164,24 @@ const sections: LegalSection[] = [
       </>
     ),
     flag: (
-      <p>
-        Provide the list of subprocessors to name or categorise here (hosting, email
-        delivery, CRM, telephony), and confirm the &ldquo;do not sell or
-        share&rdquo; statement against the CCPA definitions.
-      </p>
+      <>
+        <p>
+          Confirm the service-provider categories to name here. Alert lists telecom
+          providers, marketing companies, IT service providers, billing processors,
+          and email and data hosting providers, and points to a separate Data
+          Processing Agreement.
+        </p>
+        <p>
+          A DPA is worth considering for us too — client firms handling
+          prospective-client data will increasingly ask for one, and having it ready
+          is a sales advantage rather than a hurdle.
+        </p>
+        <p>
+          Also confirm the &ldquo;do not sell or share&rdquo; statement. It is
+          currently true because the site runs no analytics or advertising
+          technology; adding either could change the answer.
+        </p>
+      </>
     ),
   },
   {
@@ -176,48 +189,67 @@ const sections: LegalSection[] = [
     body: (
       <>
         <p>
-          We keep intake records and recordings for as long as the client firm
-          instructs and as long as we need them to provide the service and meet our
-          own legal obligations, then delete or de-identify them.
+          <strong>Intake records:</strong> retained for the life of the client
+          firm&rsquo;s account and for [ 24 ] months after, then deleted.
         </p>
         <p>
-          We use administrative and technical safeguards appropriate to the
-          sensitivity of the information, and we limit access to staff who need it to
-          do their work. No method of transmission or storage is completely secure.
+          <strong>Call recordings:</strong> retained for [ 90 ] days, then deleted.
+        </p>
+        <p>
+          <strong>Website enquiries:</strong> retained for [ 24 ] months from your
+          last contact with us.
+        </p>
+        <p>
+          A client firm can instruct us to keep its records for a shorter period, and
+          we will keep information for longer where the law requires it.
+        </p>
+        <p>
+          Access is limited to staff and service providers who need it to do their
+          work, information is encrypted in transit, and we review access regularly.
+          No method of transmission or storage is completely secure.
         </p>
       </>
     ),
     flag: (
       <>
         <p>
-          Replace the retention language with actual periods — separately for intake
-          records, call recordings, and website enquiries — and confirm whether
-          retention is set by us, by each client firm, or by the agreement.
+          <strong>The bracketed numbers are proposals, not decisions.</strong> They
+          mirror the periods Alert publishes — 24 months for data, 90 days for
+          recordings — because those are defensible in this market and because stated
+          periods read as far more credible than &ldquo;as long as necessary&rdquo;.
+          Confirm what our systems actually do, and change the numbers to match
+          before this publishes.
         </p>
         <p>
-          <strong>Benchmark.</strong> Alert Communications publishes concrete
-          numbers: data retained no more than 24 months, call recordings no more than
-          90 days, and nothing retained after account termination. Stated periods
-          read as far more credible than &ldquo;as long as necessary&rdquo;, and they
-          also limit our own exposure in discovery. Worth matching the specificity
-          even if the numbers differ.
+          Two related decisions: whether a firm may instruct a <em>longer</em> period
+          as well as a shorter one, and what happens to records when an account
+          closes.
         </p>
       </>
     ),
   },
   {
-    heading: "Your privacy rights",
+    heading: "Your privacy rights, including California",
     body: (
       <>
         <p>
           <strong>If you contacted us through this website</strong>, you may ask us
           what we hold about you, ask us to correct or delete it, and ask us not to
-          contact you again. Email {site.email} and we will respond.
+          contact you again. Email {site.email} and we will respond within 45 days.
         </p>
         <p>
-          <strong>If you were a caller</strong>, we handled your information on
-          instructions from the law firm you called. Requests are best directed to
-          that firm, and we will assist the firm in responding.
+          <strong>If you were a caller</strong>, we handled your information as a
+          service provider on instructions from the law firm you called. That firm is
+          the right place to direct a request about it. If the firm asks us for help
+          in responding, we will assist — through its partner portal where the
+          information is available there, or directly where it is not.
+        </p>
+        <p>
+          <strong>California residents.</strong> The CCPA gives you rights to know
+          what personal information is collected about you, to request deletion or
+          correction, and not to be discriminated against for exercising those
+          rights. We do not sell personal information and we do not share it for
+          cross-context behavioural advertising.
         </p>
         <p>We will not discriminate against you for exercising these rights.</p>
       </>
@@ -230,17 +262,18 @@ const sections: LegalSection[] = [
           timeframes counsel wants stated.
         </p>
         <p>
-          <strong>A position worth considering.</strong> Alert Communications argues
-          in its policy that, as a service provider processing solely on customer
-          instructions, it is exempt from consumer deletion requests under the CCPA
-          internal-use exception, and states that it will not delete on request —
-          directing consumers to the customer instead. They run the same argument
-          under the Virginia, Colorado, Connecticut, and Utah statutes.
+          <strong>A position we have deliberately not taken.</strong> Alert argues
+          that as a service provider it is exempt from consumer deletion requests
+          under the CCPA internal-use exception, and states flatly that it will not
+          delete on request. They run the same argument under the Virginia, Colorado,
+          Connecticut and Utah statutes.
         </p>
         <p>
-          That is a more assertive stance than our draft takes. Counsel should advise
-          whether it is right for us, and whether we need the other four states
-          covered or only California.
+          Our draft says instead that we assist the firm. That is softer, and it is
+          consistent with how the rest of the site speaks, but it may commit us to
+          work Alert has declined. Counsel should decide which position we take before
+          this publishes — and whether we need the other four states covered, which
+          depends on where our client firms operate rather than where we do.
         </p>
       </>
     ),
