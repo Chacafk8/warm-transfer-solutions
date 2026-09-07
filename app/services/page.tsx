@@ -142,15 +142,16 @@ export default function ServicesPage() {
               <span className="font-serif italic text-gradient">person</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-navy-100/75">
-              Someone calling your firm is often days into the worst thing that has
-              happened to them. They are in pain, out of work, and already fielding
-              calls from an adjuster who is not on their side. That is not a moment
-              for a phone tree, or for a bot asking them to state their reason for
-              calling.
+              Nobody calls a law firm on a good day. They may be injured, out of
+              work, or facing something they have never had to deal with before —
+              and they have usually already told the story once to someone who
+              wasn&rsquo;t really listening. That is not a moment for a phone tree,
+              or for a bot asking them to state their reason for calling.
             </p>
             <p className="mt-5 text-lg leading-relaxed text-navy-100/75">
-              It is in our name. A warm transfer is a live handoff with context —
-              not a call bounced to whoever picks up.
+              It is in our name. Your firm receives the caller&rsquo;s story
+              already gathered and written up — not a message slip with a name and
+              a number on it.
             </p>
           </Reveal>
 
