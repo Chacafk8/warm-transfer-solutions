@@ -135,24 +135,29 @@ export default function ServicesPage() {
         </div>
 
         <div className="container-page relative">
-          <Reveal className="max-w-3xl">
+          <Reveal>
             <Eyebrow tone="light">Human-centred by design</Eyebrow>
-            <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl lg:leading-[1.08]">
               The first voice they hear is a{" "}
               <span className="font-serif italic text-gradient">person</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-navy-100/75">
-              Nobody calls a law firm on a good day. They may be injured, out of
-              work, or facing something they have never had to deal with before —
-              and they have usually already told the story once to someone who
-              wasn&rsquo;t really listening. That is not a moment for a phone tree,
-              or for a bot asking them to state their reason for calling.
-            </p>
-            <p className="mt-5 text-lg leading-relaxed text-navy-100/75">
-              It is in our name. Your firm receives the caller&rsquo;s story
-              already gathered and written up — not a message slip with a name and
-              a number on it.
-            </p>
+            {/* Two columns keep the line length readable while the block still
+                spans the full container. */}
+            <div className="mt-9 grid gap-x-14 gap-y-5 lg:grid-cols-2">
+              <p className="text-lg leading-relaxed text-navy-100/75">
+                Nobody calls a law firm on a good day. They may be injured, out of
+                work, or facing something they have never had to deal with before —
+                and they have usually already told the story once to someone who
+                wasn&rsquo;t really listening. That is not a moment for a phone
+                tree, or for a bot asking them to state their reason for calling.
+              </p>
+              <p className="text-lg leading-relaxed text-navy-100/75">
+                It is in our name. Your firm receives the caller&rsquo;s story
+                already gathered and written up — not a message slip with a name
+                and a number on it. The person who took the call listened to it
+                first.
+              </p>
+            </div>
           </Reveal>
 
           {/* Where the line sits: people in front, software behind. */}
