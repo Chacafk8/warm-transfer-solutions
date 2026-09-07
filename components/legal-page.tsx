@@ -2,7 +2,12 @@ import type { ReactNode } from "react";
 import { PageHero } from "./page-hero";
 import { Reveal } from "./reveal";
 
-export type LegalSection = { heading: string; body: ReactNode };
+export type LegalSection = {
+  heading: string;
+  body: ReactNode;
+  /** Question for counsel, rendered inline so it cannot be missed in review. */
+  flag?: ReactNode;
+};
 
 /**
  * Shared shell for Privacy / Terms. The sections below are drafting prompts,
@@ -52,12 +57,14 @@ export function LegalPage({
                   </span>
                   <div>
                     <h2 className="text-base font-semibold text-amber-900">
-                      Placeholder — replace before launch
+                      Draft — not yet reviewed by counsel
                     </h2>
                     <p className="mt-2 text-[0.9375rem] leading-relaxed text-amber-900/80">
-                      The sections below are drafting prompts only. They are not legal
-                      language and must be replaced with a policy reviewed by counsel
-                      that accurately reflects your actual practices.
+                      This is a working draft prepared for legal review, not a final
+                      policy. Items marked{" "}
+                      <span className="font-semibold">For counsel</span> need a
+                      decision or confirmation before publication. This page is set
+                      to noindex until that review is complete.
                     </p>
                   </div>
                 </div>
@@ -71,9 +78,20 @@ export function LegalPage({
                     <h2 className="text-xl font-semibold text-navy-800">
                       {section.heading}
                     </h2>
-                    <div className="mt-3 leading-relaxed text-navy-800/65">
+                    <div className="mt-3 space-y-4 leading-relaxed text-navy-800/65">
                       {section.body}
                     </div>
+
+                    {section.flag && (
+                      <div className="mt-5 rounded-2xl bg-amber-50 px-5 py-4 ring-1 ring-inset ring-amber-600/20">
+                        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-amber-800">
+                          For counsel
+                        </p>
+                        <div className="mt-2 space-y-2 text-sm leading-relaxed text-amber-900/85">
+                          {section.flag}
+                        </div>
+                      </div>
+                    )}
                   </article>
                 </Reveal>
               ))}
