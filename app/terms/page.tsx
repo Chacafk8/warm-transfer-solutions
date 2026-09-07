@@ -33,6 +33,12 @@ const sections: LegalSection[] = [
           your rates, and anything agreed specifically for your firm. Where your
           Service Plan differs from these terms, your Service Plan governs.
         </p>
+        <p className="rounded-2xl bg-navy-50 px-5 py-4 text-[0.9375rem] font-semibold uppercase tracking-wide text-navy-800 ring-1 ring-inset ring-navy-800/10">
+          Section 16 requires disputes to be resolved by binding individual
+          arbitration. You and we each waive the right to a jury trial and the right
+          to bring or take part in a class, collective, or representative action.
+          Please read it.
+        </p>
       </>
     ),
     flag: (
@@ -472,27 +478,103 @@ const sections: LegalSection[] = [
     ),
   },
   {
-    heading: "16. Disputes and governing law",
+    heading: "16. Disputes, arbitration, and governing law",
     body: (
       <>
         <p>
-          If something goes wrong, contact us first and we will try to resolve it
-          directly.
+          <strong>Talk to us first.</strong> If something goes wrong, contact us and
+          we will try to resolve it directly. Most problems are settled this way.
         </p>
         <p>
-          These terms are governed by the laws of the State of California, without
-          regard to conflict-of-law rules.
+          <strong>Binding arbitration.</strong> Any dispute arising out of or relating
+          to these terms, your Service Plan, or the service that we cannot resolve
+          directly will be resolved by binding arbitration administered by the
+          American Arbitration Association under its Commercial Arbitration Rules,
+          before a single arbitrator, rather than in court. The Federal Arbitration
+          Act governs this section.
+        </p>
+        <p>
+          <strong>Individual basis only.</strong> Disputes will be arbitrated only on
+          an individual basis. You and we each waive any right to a jury trial, and
+          any right to bring, join, or participate in a class, collective,
+          consolidated, or representative action. An arbitrator may award the same
+          individual relief a court could, but may not award relief on behalf of
+          anyone who is not a party.
+        </p>
+        <p>
+          <strong>What is outside arbitration.</strong> Either of us may bring a claim
+          in small claims court where it qualifies, and either of us may seek
+          injunctive or other equitable relief from a court to protect intellectual
+          property or to prevent a breach of the confidentiality obligations in
+          section 8. Questions about whether this arbitration provision is valid or
+          how far it reaches are for a court, not the arbitrator.
+        </p>
+        <p>
+          <strong>Seat and venue.</strong> The arbitration will be seated in
+          [ county, state ], and judgment on the award may be entered in any court of
+          competent jurisdiction.
+        </p>
+        <p>
+          <strong>Governing law.</strong> These terms are governed by the laws of the
+          State of [ Wyoming ], without regard to conflict-of-law rules.
+        </p>
+        <p>
+          This section survives termination of your Service Plan.
         </p>
       </>
     ),
     flag: (
-      <p>
-        Decide on arbitration. Alert leads with binding individual arbitration, a
-        jury-trial waiver, and a class-action waiver in capitals, with a thirty-day
-        written opt-out and carve-outs for IP and small claims. Our clients are law
-        firms rather than consumers, which changes the calculus. Counsel should advise
-        whether we want it, and confirm venue.
-      </p>
+      <>
+        <p>
+          <strong>Governing law is bracketed pending advice.</strong> The company is
+          registered in Wyoming, which is normally sufficient connection for a
+          Wyoming choice-of-law clause in a business-to-business contract. Counsel
+          should confirm.
+        </p>
+        <p>
+          <strong>What the clause will not do.</strong> A choice of Wyoming law
+          governs the agreement between us and the client firm. It does not displace
+          statutes that attach to the individuals involved rather than to the
+          contract. California Penal Code &sect;632 is criminal law and is not subject
+          to contractual choice of law at all; the CCPA and the equivalent Virginia,
+          Colorado, Connecticut and Utah statutes attach to their own residents&rsquo;
+          personal information. Nothing on this page should be drafted as though
+          Wyoming registration reduces that exposure.
+        </p>
+        <p>
+          <strong>The determinative fact is operational, not corporate.</strong>{" "}
+          Recording law follows where the parties to the call are sitting. Counsel
+          needs to know where our representatives are physically located when they
+          take calls, and should advise whether we comply state by state or default to
+          the strictest rule in play.
+        </p>
+        <p>
+          <strong>Arbitration is wanted, and is drafted above.</strong> Four points
+          for counsel.
+        </p>
+        <p>
+          1. We have specified the AAA <em>Commercial</em> rules rather than the
+          Consumer rules Alert uses, because our counterparties are law firms. That is
+          the right fit and it also means the clause faces far less scrutiny than a
+          consumer arbitration clause would.
+        </p>
+        <p>
+          2. <strong>No opt-out is included.</strong> Alert offers thirty days.
+          An opt-out mainly buys enforceability against unsophisticated parties, which
+          is not who we contract with. Confirm we are content without one.
+        </p>
+        <p>
+          3. <strong>Conspicuousness.</strong> There is an uppercase notice in section
+          1 pointing to this clause, which is the convention for making a jury-trial
+          waiver enforceable. Confirm the placement and wording are sufficient.
+        </p>
+        <p>
+          4. Set the seat and venue, and decide how arbitration costs and fees are
+          allocated — including whether we pay the filing fee in smaller disputes,
+          which materially improves enforceability. Note a Wyoming seat may be
+          resisted by firms elsewhere even where Wyoming law is accepted.
+        </p>
+      </>
     ),
   },
   {

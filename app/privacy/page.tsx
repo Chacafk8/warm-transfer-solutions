@@ -123,7 +123,10 @@ const sections: LegalSection[] = [
         </p>
         <p>
           2. How are calls involving parties in other states handled, given that
-          consent requirements differ and calls cross state lines?
+          consent requirements differ and calls cross state lines? Note that the
+          company&rsquo;s Wyoming registration does not bear on this — Wyoming is a
+          one-party consent state, but recording law follows where the parties to the
+          call are sitting, not where the company is formed.
         </p>
         <p>
           3. Should we give our own recording announcement as a backstop, independent
