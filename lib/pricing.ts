@@ -76,6 +76,17 @@ export const OVERNIGHT_WINDOW = "10 PM and 6 AM Pacific Time";
  */
 export const NOT_BILLED = ["Robocalls", "Spam calls", "Wrong numbers"] as const;
 
+/**
+ * Charges the firm does not levy at all. Together with the plan base, the
+ * per-minute overage and the overnight surcharge, this makes the rate card
+ * exhaustive — which is what lets the page claim every rate is published.
+ */
+export const NO_FEES = [
+  "Setup or onboarding",
+  "Per-lead charges",
+  "API integration",
+] as const;
+
 export const rateFor = (plan: Plan, term: BillingTerm): Rate =>
   term === "annual" ? plan.annual : plan.monthly;
 

@@ -8,6 +8,7 @@ import { Button, Check, SectionHeading } from "@/components/ui";
 import { CTA_LABEL } from "@/lib/site";
 import {
   NOT_BILLED,
+  NO_FEES,
   OVERNIGHT_SURCHARGE,
   OVERNIGHT_WINDOW,
   maxSavingPct,
@@ -34,6 +35,10 @@ const faqs: FaqItem[] = [
   {
     q: "What happens if I go over my included minutes?",
     a: "Nothing changes in how calls are handled. Minutes beyond your plan's allowance are billed at that plan's published per-minute rate — the same rate shown on this page. There is no penalty tier and no surprise reclassification.",
+  },
+  {
+    q: "Are there any other fees?",
+    a: `No. There is no setup or onboarding fee, no per-lead charge, and no cost to integrate with your system through our API. The plan base, the per-minute rate for minutes past your allowance, and the overnight surcharge are the entire bill — which is why we can publish all of them on one page.`,
   },
   {
     q: "Do I pay for robocalls and wrong numbers?",
@@ -105,9 +110,11 @@ export default function PricingPage() {
                   Your monthly total is the plan base, plus any minutes beyond
                   what the plan includes charged at that plan&rsquo;s published
                   per-minute rate, plus the overnight surcharge on calls handled
-                  between {OVERNIGHT_WINDOW}. Going over your allowance costs the
-                  rate printed on the card above — a flat number that does not
-                  climb the further past it you go.
+                  between {OVERNIGHT_WINDOW}. That is the whole bill — there is no
+                  setup fee, no per-lead charge, and no cost to integrate with your
+                  system. Going over your allowance costs the rate printed on the
+                  card above, a flat number that does not climb the further past it
+                  you go.
                 </p>
               </SectionHeading>
 
@@ -120,7 +127,7 @@ export default function PricingPage() {
                   {"\n"}
                   {"              "}+ (overnight minutes × {usd(OVERNIGHT_SURCHARGE, true)}){"\n"}
                   <span className="text-navy-100/40">
-                    {"              "}# overnight = calls between {OVERNIGHT_WINDOW}
+                    {"              "}# overnight = 10 PM&ndash;6 AM Pacific
                   </span>
                 </pre>
               </div>
@@ -134,21 +141,37 @@ export default function PricingPage() {
 
               <div className="mt-9 rounded-2xl bg-teal-50 p-6 ring-1 ring-inset ring-teal-500/20 sm:p-7">
                 <h3 className="text-base font-semibold text-teal-900">
-                  What we never bill you for
+                  What you never pay for
                 </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {NOT_BILLED.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-teal-800 ring-1 ring-inset ring-teal-500/20"
-                    >
-                      {item}
-                    </li>
+
+                <div className="mt-5 space-y-5">
+                  {[
+                    { label: "Calls we don't bill", items: NOT_BILLED },
+                    { label: "Fees we don't have", items: NO_FEES },
+                  ].map((group) => (
+                    <div key={group.label}>
+                      <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-teal-700">
+                        {group.label}
+                      </p>
+                      <ul className="mt-2.5 flex flex-wrap gap-2">
+                        {group.items.map((item) => (
+                          <li
+                            key={item}
+                            className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-teal-800 ring-1 ring-inset ring-teal-500/20"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   ))}
-                </ul>
-                <p className="mt-4 text-[0.9375rem] leading-relaxed text-teal-900/70">
-                  Filtering these out is the job you are hiring us for. Billing you
-                  for the time it takes would be charging you for our own filter.
+                </div>
+
+                <p className="mt-5 border-t border-teal-500/15 pt-5 text-[0.9375rem] leading-relaxed text-teal-900/70">
+                  Filtering junk calls is the job you are hiring us for — billing
+                  you for the time it takes would be charging you for our own
+                  filter. The plan base, the per-minute rate past your allowance,
+                  and the overnight surcharge are the entire bill.
                 </p>
               </div>
             </Reveal>
