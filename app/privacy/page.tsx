@@ -129,6 +129,15 @@ const sections: LegalSection[] = [
           3. Should we give our own recording announcement as a backstop, independent
           of the firm&rsquo;s?
         </p>
+        <p>
+          <strong>How a competitor handles it.</strong> Alert Communications states
+          plainly that the client is solely responsible for obtaining all consents
+          and permissions from call participants, and that compliance with notice and
+          consent requirements is the client&rsquo;s sole responsibility. They also
+          record their own client calls where state law allows, with notification and
+          stay-on-the-line consent. That is the explicit allocation this section
+          currently leaves as an assumption.
+        </p>
       </>
     ),
   },
@@ -179,11 +188,21 @@ const sections: LegalSection[] = [
       </>
     ),
     flag: (
-      <p>
-        Replace the retention language with actual periods — separately for intake
-        records, call recordings, and website enquiries — and confirm whether
-        retention is set by us, by each client firm, or by the agreement.
-      </p>
+      <>
+        <p>
+          Replace the retention language with actual periods — separately for intake
+          records, call recordings, and website enquiries — and confirm whether
+          retention is set by us, by each client firm, or by the agreement.
+        </p>
+        <p>
+          <strong>Benchmark.</strong> Alert Communications publishes concrete
+          numbers: data retained no more than 24 months, call recordings no more than
+          90 days, and nothing retained after account termination. Stated periods
+          read as far more credible than &ldquo;as long as necessary&rdquo;, and they
+          also limit our own exposure in discovery. Worth matching the specificity
+          even if the numbers differ.
+        </p>
+      </>
     ),
   },
   {
@@ -204,11 +223,26 @@ const sections: LegalSection[] = [
       </>
     ),
     flag: (
-      <p>
-        Confirm whether we meet the CCPA applicability thresholds in our own right,
-        and add the specific request mechanism, verification steps, and response
-        timeframes counsel wants stated.
-      </p>
+      <>
+        <p>
+          Confirm whether we meet the CCPA applicability thresholds in our own right,
+          and add the specific request mechanism, verification steps, and response
+          timeframes counsel wants stated.
+        </p>
+        <p>
+          <strong>A position worth considering.</strong> Alert Communications argues
+          in its policy that, as a service provider processing solely on customer
+          instructions, it is exempt from consumer deletion requests under the CCPA
+          internal-use exception, and states that it will not delete on request —
+          directing consumers to the customer instead. They run the same argument
+          under the Virginia, Colorado, Connecticut, and Utah statutes.
+        </p>
+        <p>
+          That is a more assertive stance than our draft takes. Counsel should advise
+          whether it is right for us, and whether we need the other four states
+          covered or only California.
+        </p>
+      </>
     ),
   },
   {

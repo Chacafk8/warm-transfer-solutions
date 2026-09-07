@@ -28,12 +28,22 @@ const sections: LegalSection[] = [
       </>
     ),
     flag: (
-      <p>
-        Keeping the website terms and the services agreement separate is deliberate.
-        Confirm this framing matches how the MSA is drafted, and that nothing on the
-        public site is capable of being read as an offer or a service commitment —
-        the pricing page in particular publishes rates.
-      </p>
+      <>
+        <p>
+          <strong>This is a structural decision, not just wording.</strong> Our draft
+          keeps the website terms narrow and leaves services to a separate MSA.
+          Alert Communications takes the opposite approach: their public
+          &ldquo;Terms and Conditions&rdquo; <em>is</em> the services agreement —
+          plans, charges, fees, payment, late charges, termination, and arbitration
+          all sit on the public page, with a per-client Service Plan attaching the
+          rates.
+        </p>
+        <p>
+          Since we already publish rates, the Alert model may suit us better than the
+          split. Worth deciding before the rest of this page is finalised, because it
+          changes what belongs here.
+        </p>
+      </>
     ),
   },
   {
@@ -139,8 +149,17 @@ const sections: LegalSection[] = [
         </p>
         <p>
           3. Whether any of this belongs on the public website at all, or solely in
-          the services agreement. Stating a cap publicly may be worse than stating
-          nothing.
+          the services agreement.
+        </p>
+        <p>
+          <strong>A benchmark from the same market.</strong> Alert Communications
+          publishes a cap of &ldquo;a credit adjustment equal to Client&rsquo;s
+          pro-rated monthly service charge for the period during which the liability
+          arose, to a maximum of fifteen days or five hundred dollars, whichever is
+          less&rdquo;, together with a requirement that written notice of a claim be
+          given within fourteen days. That is far more protective than a
+          twelve-months-of-fees cap, and it is on their public site. It tells us what
+          the market will bear; counsel should advise whether we want to go that far.
         </p>
       </>
     ),
@@ -166,6 +185,33 @@ const sections: LegalSection[] = [
           The content, design, and branding on this website belong to Warm Transfer
           Solutions or are used with permission. You may not reproduce them for
           commercial purposes without our written consent.
+        </p>
+      </>
+    ),
+  },
+  {
+    heading: "Resolving disputes",
+    body: (
+      <>
+        <p>
+          If a dispute arises, we ask that you contact us first so we can try to
+          resolve it directly.
+        </p>
+      </>
+    ),
+    flag: (
+      <>
+        <p>
+          <strong>This section is a placeholder pending a decision.</strong> Alert
+          Communications puts binding individual arbitration, a jury-trial waiver,
+          and a class-action waiver at the very top of their terms in capitals, with
+          a thirty-day written opt-out and carve-outs for IP disputes and small
+          claims.
+        </p>
+        <p>
+          Counsel should advise whether we want the same, and if so whether it
+          belongs on the public page or only in the services agreement. Also
+          consider a notice-of-claim window, which Alert sets at fourteen days.
         </p>
       </>
     ),
