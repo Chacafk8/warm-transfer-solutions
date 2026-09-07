@@ -56,28 +56,27 @@ export const plans: Plan[] = [
 ];
 
 /**
- * Surcharge added to each overnight minute, on top of the plan rate.
- * Same across every plan and both terms.
+ * Surcharge added to each overnight minute, on top of the plan rate. It is
+ * identical on every plan and both terms, so it shifts all plans equally and
+ * never changes which plan is cheapest — which is why the estimator states it
+ * rather than folding it into the comparison.
  */
 export const OVERNIGHT_SURCHARGE = 0.15;
+
+/** The hours the overnight surcharge applies to. */
+export const OVERNIGHT_WINDOW = "10 PM and 6 AM";
 
 export const rateFor = (plan: Plan, term: BillingTerm): Rate =>
   term === "annual" ? plan.annual : plan.monthly;
 
 /**
- * Monthly total: base + minutes beyond the allowance at the plan rate,
- * plus the overnight surcharge on any overnight minutes.
+ * Monthly total: base + minutes beyond the allowance at the plan rate.
+ * Excludes the overnight surcharge, which is disclosed separately.
  */
-export function monthlyCost(
-  plan: Plan,
-  minutes: number,
-  term: BillingTerm,
-  overnightMinutes = 0,
-): number {
+export function monthlyCost(plan: Plan, minutes: number, term: BillingTerm): number {
   const rate = rateFor(plan, term);
   const over = Math.max(0, minutes - plan.included);
-  const overnight = Math.min(Math.max(overnightMinutes, 0), minutes);
-  return rate.base + over * rate.overage + overnight * OVERNIGHT_SURCHARGE;
+  return rate.base + over * rate.overage;
 }
 
 /** Blended cost per minute — the figure that actually compares plans. */
@@ -85,24 +84,16 @@ export function effectiveRate(
   plan: Plan,
   minutes: number,
   term: BillingTerm,
-  overnightMinutes = 0,
 ): number | null {
   if (minutes <= 0) return null;
-  return monthlyCost(plan, minutes, term, overnightMinutes) / minutes;
+  return monthlyCost(plan, minutes, term) / minutes;
 }
 
 /** Cheapest published plan at a given volume. */
-export function bestPlan(
-  minutes: number,
-  term: BillingTerm,
-  overnightMinutes = 0,
-): Plan | null {
+export function bestPlan(minutes: number, term: BillingTerm): Plan | null {
   if (minutes <= 0) return null;
   return plans.reduce((best, p) =>
-    monthlyCost(p, minutes, term, overnightMinutes) <
-    monthlyCost(best, minutes, term, overnightMinutes)
-      ? p
-      : best,
+    monthlyCost(p, minutes, term) < monthlyCost(best, minutes, term) ? p : best,
   );
 }
 

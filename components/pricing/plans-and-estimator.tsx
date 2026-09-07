@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   ENTERPRISE_THRESHOLD,
   OVERNIGHT_SURCHARGE,
+  OVERNIGHT_WINDOW,
   baseSaving,
   bestPlan,
   effectiveRate,
@@ -30,15 +31,12 @@ const PRESETS = [200, 500, 1000, 1800];
 export function PlansAndEstimator() {
   const [term, setTerm] = useState<BillingTerm>("annual");
   const [minutes, setMinutes] = useState(500);
-  const [overnight, setOvernight] = useState(0);
   const sliderId = useId();
-  const overnightId = useId();
 
-  const best = bestPlan(minutes, term, overnight);
+  const best = bestPlan(minutes, term);
   const max = useMemo(
-    () =>
-      Math.max(...plans.map((p) => monthlyCost(p, minutes, term, overnight)), 1),
-    [minutes, term, overnight],
+    () => Math.max(...plans.map((p) => monthlyCost(p, minutes, term)), 1),
+    [minutes, term],
   );
   const overThreshold = minutes > ENTERPRISE_THRESHOLD;
 
@@ -85,6 +83,22 @@ export function PlansAndEstimator() {
               </article>
             </Reveal>
           </div>
+
+          <Reveal delay={340}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl bg-navy-50/80 px-6 py-5 text-center text-sm ring-1 ring-inset ring-navy-800/6">
+              <span className="flex items-center gap-2 font-semibold text-navy-800">
+                <MoonIcon />
+                Overnight calls
+              </span>
+              <span className="text-navy-800/65">
+                Calls handled between {OVERNIGHT_WINDOW} carry an additional{" "}
+                <strong className="font-semibold text-navy-800">
+                  {usd(OVERNIGHT_SURCHARGE, true)} per minute
+                </strong>
+                , on every plan and both terms.
+              </span>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -136,11 +150,9 @@ export function PlansAndEstimator() {
                         value={minutes}
                         onChange={(e) => {
                           const v = Number(e.target.value);
-                          const next = Number.isFinite(v)
-                            ? Math.min(Math.max(v, 0), MAX)
-                            : 0;
-                          setMinutes(next);
-                          setOvernight((o) => Math.min(o, next));
+                          setMinutes(
+                            Number.isFinite(v) ? Math.min(Math.max(v, 0), MAX) : 0,
+                          );
                         }}
                         aria-label="Expected monthly minutes"
                         className="w-32 rounded-xl border border-navy-800/12 bg-white px-3 py-2 text-3xl font-semibold tracking-tight tabular-nums text-navy-800 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/12"
@@ -175,11 +187,7 @@ export function PlansAndEstimator() {
                   max={MAX}
                   step={10}
                   value={minutes}
-                  onChange={(e) => {
-                    const next = Number(e.target.value);
-                    setMinutes(next);
-                    setOvernight((o) => Math.min(o, next));
-                  }}
+                  onChange={(e) => setMinutes(Number(e.target.value))}
                   className="mt-7 w-full accent-teal-500"
                 />
                 <div className="mt-2 flex justify-between text-xs tabular-nums text-navy-800/45">
@@ -187,37 +195,7 @@ export function PlansAndEstimator() {
                   <span>{MAX.toLocaleString()}+</span>
                 </div>
 
-                <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-navy-800/8 pt-6">
-                  <div>
-                    <label
-                      htmlFor={overnightId}
-                      className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-navy-800/50"
-                    >
-                      Of which overnight
-                    </label>
-                    <div className="mt-1.5 flex items-center gap-2">
-                      <input
-                        id={overnightId}
-                        type="number"
-                        min={0}
-                        max={minutes}
-                        step={10}
-                        value={overnight}
-                        onChange={(e) => {
-                          const v = Number(e.target.value);
-                          setOvernight(
-                            Number.isFinite(v)
-                              ? Math.min(Math.max(v, 0), minutes)
-                              : 0,
-                          );
-                        }}
-                        className="w-24 rounded-lg border border-navy-800/12 bg-white px-2.5 py-1.5 text-lg font-semibold tabular-nums text-navy-800 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/12"
-                      />
-                      <span className="text-sm text-navy-800/50">
-                        min · +{usd(OVERNIGHT_SURCHARGE, true)}/min
-                      </span>
-                    </div>
-                  </div>
+                <div className="mt-6 flex justify-center border-t border-navy-800/8 pt-6">
                   <TermToggle term={term} onChange={setTerm} />
                 </div>
               </div>
@@ -229,7 +207,6 @@ export function PlansAndEstimator() {
                     plan={plan}
                     minutes={minutes}
                     term={term}
-                    overnight={overnight}
                     max={max}
                     isBest={best?.id === plan.id && minutes > 0}
                   />
@@ -270,11 +247,24 @@ export function PlansAndEstimator() {
                 </div>
               </div>
 
-              <p className="border-t border-navy-800/8 bg-navy-50/40 px-6 py-5 text-xs leading-relaxed text-navy-800/55 sm:px-9">
-                Estimate only, based on the published rates above. Your actual
-                invoice depends on how call time is measured and rounded, which is
-                confirmed in your service agreement.
-              </p>
+              <div className="border-t border-navy-800/8 bg-navy-50/40 px-6 py-5 sm:px-9">
+                <p className="flex items-start gap-2.5 text-xs leading-relaxed text-navy-800/70">
+                  <MoonIcon />
+                  <span>
+                    <strong className="font-semibold text-navy-800">
+                      Overnight calls
+                    </strong>{" "}
+                    — calls handled between {OVERNIGHT_WINDOW} carry an additional{" "}
+                    {usd(OVERNIGHT_SURCHARGE, true)} per minute, on every plan and
+                    both terms. Not included in the totals above.
+                  </span>
+                </p>
+                <p className="mt-3 text-xs leading-relaxed text-navy-800/50">
+                  Estimate only, based on the published rates. Your actual invoice
+                  depends on how call time is measured and rounded, which is
+                  confirmed in your service agreement.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -350,20 +340,18 @@ function Row({
   plan,
   minutes,
   term,
-  overnight,
   max,
   isBest,
 }: {
   plan: Plan;
   minutes: number;
   term: BillingTerm;
-  overnight: number;
   max: number;
   isBest: boolean;
 }) {
   const { base, overage } = rateFor(plan, term);
-  const cost = monthlyCost(plan, minutes, term, overnight);
-  const rate = effectiveRate(plan, minutes, term, overnight);
+  const cost = monthlyCost(plan, minutes, term);
+  const rate = effectiveRate(plan, minutes, term);
   const over = Math.max(0, minutes - plan.included);
   const remaining = Math.max(0, plan.included - minutes);
   const width = Math.max((cost / max) * 100, 2);
@@ -419,13 +407,6 @@ function Row({
         ) : (
           <> · all {plan.included.toLocaleString()} included minutes used</>
         )}
-        {overnight > 0 && (
-          <>
-            {" + "}
-            {overnight.toLocaleString()} overnight at{" "}
-            {usd(OVERNIGHT_SURCHARGE, true)}
-          </>
-        )}
         {rate !== null && (
           <span className="text-navy-800/40">
             {" · "}
@@ -434,5 +415,22 @@ function Row({
         )}
       </p>
     </div>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="mt-px size-4 shrink-0 text-navy-800/45"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+    </svg>
   );
 }

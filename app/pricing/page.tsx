@@ -6,7 +6,12 @@ import { PlansAndEstimator } from "@/components/pricing/plans-and-estimator";
 import { Faq, type FaqItem } from "@/components/faq";
 import { Button, Check, SectionHeading } from "@/components/ui";
 import { CTA_LABEL } from "@/lib/site";
-import { OVERNIGHT_SURCHARGE, maxSavingPct, usd } from "@/lib/pricing";
+import {
+  OVERNIGHT_SURCHARGE,
+  OVERNIGHT_WINDOW,
+  maxSavingPct,
+  usd,
+} from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -35,7 +40,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "How does overnight coverage affect the price?",
-    a: `Overnight minutes carry a surcharge of ${usd(OVERNIGHT_SURCHARGE, true)} per minute on top of your plan's rate. It is the same on every plan and on both terms. The estimator lets you enter how many of your minutes fall overnight so you can see the effect.`,
+    a: `Calls handled between ${OVERNIGHT_WINDOW} carry an additional ${usd(OVERNIGHT_SURCHARGE, true)} per minute on top of your plan's rate. It is identical on every plan and both terms, so it does not change which plan is cheapest for you — it adds the same amount whichever you pick. The estimator leaves it out for that reason; add it to the total yourself, or ask us to price your expected overnight load.`,
   },
   {
     q: "How do I know which plan to pick?",
@@ -94,8 +99,9 @@ export default function PricingPage() {
                 <p>
                   There is no separate onboarding line, no per-lead charge, and no
                   rate that changes once you are past your allowance. Your monthly
-                  total is the plan base, plus any minutes beyond what the plan
-                  includes, plus the overnight surcharge on overnight minutes.
+                  total is the plan base plus any minutes beyond what the plan
+                  includes — with the overnight surcharge added on top of any calls
+                  handled between {OVERNIGHT_WINDOW}.
                 </p>
               </SectionHeading>
 
@@ -106,7 +112,10 @@ export default function PricingPage() {
                   {"              "}+ (minutes over included ×{" "}
                   <span className="text-teal-300">plan rate</span>)
                   {"\n"}
-                  {"              "}+ (overnight minutes × {usd(OVERNIGHT_SURCHARGE, true)})
+                  {"              "}+ (overnight minutes × {usd(OVERNIGHT_SURCHARGE, true)}){"\n"}
+                  <span className="text-navy-100/40">
+                    {"              "}# overnight = calls between {OVERNIGHT_WINDOW}
+                  </span>
                 </pre>
               </div>
 
