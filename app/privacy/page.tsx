@@ -190,13 +190,13 @@ const sections: LegalSection[] = [
       <>
         <p>
           <strong>Intake records:</strong> retained for the life of the client
-          firm&rsquo;s account and for [ 24 ] months after, then deleted.
+          firm&rsquo;s account and for 24 months after, then deleted.
         </p>
         <p>
-          <strong>Call recordings:</strong> retained for [ 90 ] days, then deleted.
+          <strong>Call recordings:</strong> retained for 90 days, then deleted.
         </p>
         <p>
-          <strong>Website enquiries:</strong> retained for [ 24 ] months from your
+          <strong>Website enquiries:</strong> retained for 24 months from your
           last contact with us.
         </p>
         <p>
@@ -213,12 +213,16 @@ const sections: LegalSection[] = [
     flag: (
       <>
         <p>
-          <strong>The bracketed numbers are proposals, not decisions.</strong> They
-          mirror the periods Alert publishes — 24 months for data, 90 days for
-          recordings — because those are defensible in this market and because stated
-          periods read as far more credible than &ldquo;as long as necessary&rdquo;.
-          Confirm what our systems actually do, and change the numbers to match
-          before this publishes.
+          <strong>Periods adopted: 24 months for records, 90 days for recordings</strong>,
+          matching what Alert publishes and defensible in this market.
+        </p>
+        <p>
+          <strong>These are now commitments, so the systems have to honour them.</strong>{" "}
+          A published 90-day recording period that our storage does not actually
+          enforce is worse than no period at all — it becomes a documented breach of
+          our own policy. Confirm deletion is automated rather than manual before this
+          page publishes, and if the systems cannot yet do it, change the numbers to
+          what they can.
         </p>
         <p>
           Two related decisions: whether a firm may instruct a <em>longer</em> period

@@ -352,33 +352,49 @@ const sections: LegalSection[] = [
         <p>
           We are not liable for indirect or consequential loss, including lost
           profits, lost business, or the value of any claim or matter that is not
-          pursued.
+          pursued, whether or not we were told such loss was possible.
         </p>
         <p>
-          Our total liability arising out of the service is limited to an amount
-          stated in your Service Plan.
+          <strong>Notice of a claim.</strong> You must tell us in writing within
+          fourteen days of the date of the problem. We are not liable for a claim
+          notified after that.
+        </p>
+        <p>
+          <strong>Our total liability</strong> for any claim is limited to a credit
+          equal to the pro-rated monthly charge for the period in which the liability
+          arose, up to a maximum of fifteen days&rsquo; charges or {usd(500)},
+          whichever is less. That credit is your sole remedy.
         </p>
       </>
     ),
     flag: (
       <>
         <p>
-          <strong>The cap figure is deliberately left blank — it is the single most
-          important commercial decision on this page.</strong>
+          <strong>Drafted to match Alert&rsquo;s published position</strong> — fifteen
+          days&rsquo; pro-rated charge or {usd(500)}, whichever is less, with a
+          fourteen-day notice window. Three things counsel should weigh before it
+          stands.
         </p>
         <p>
-          The exposure is asymmetric: monthly fees run from a few hundred to a few
-          thousand dollars, while an inquiry that is missed, delayed, or wrongly
-          screened out can cost the value of a case. The exclusion above names lost
-          case value expressly, because generic &ldquo;lost profits&rdquo; wording may
-          not reach it.
+          1. <strong>Carve-outs are usually required.</strong> A cap this low
+          typically survives review only with exceptions for gross negligence, wilful
+          misconduct, breach of confidentiality, and our indemnity obligations. A cap
+          that purports to limit everything is more likely to be struck down whole
+          than read down.
         </p>
         <p>
-          Alert caps at fifteen days&rsquo; pro-rated charge or five hundred dollars,
-          whichever is less, and requires written notice of a claim within fourteen
-          days. Counsel should advise where between that and a twelve-months-of-fees
-          cap we should sit, whether a notice-of-claim window is wanted, and whether
-          the number belongs on the public page or only in the Service Plan.
+          2. <strong>Our buyers are lawyers.</strong> Alert sells to the same market,
+          but every firm that reads this will negotiate it, and a {usd(500)} ceiling
+          on a service whose failure mode is a lost case is the kind of term that
+          stalls a deal. Consider whether the published default should be higher with
+          the low cap reserved for the Service Plan.
+        </p>
+        <p>
+          3. <strong>The fourteen-day notice window does most of the work.</strong> A
+          missed inquiry may not surface for months, so in practice this bars more
+          claims than the cap does. That is precisely why Alert has it — and precisely
+          why a court may look at it closely. Confirm whether the clock should run
+          from the date of the problem or from when the firm reasonably discovered it.
         </p>
       </>
     ),
