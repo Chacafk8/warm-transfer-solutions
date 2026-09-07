@@ -225,9 +225,24 @@ const sections: LegalSection[] = [
           what they can.
         </p>
         <p>
-          Two related decisions: whether a firm may instruct a <em>longer</em> period
-          as well as a shorter one, and what happens to records when an account
-          closes.
+          <strong>There is a tension to resolve here.</strong> The business wants to
+          retain intake data as a record of what was actually said and decided, which
+          is a sound instinct — it is the evidence if a firm ever disputes how an
+          inquiry was handled. But the periods above are deletion commitments, and
+          the two pull against each other.
+        </p>
+        <p>
+          The usual resolution is to separate them: keep the <em>intake record</em>
+          (what was asked, what was answered, what outcome was reached) for as long as
+          it is useful as evidence, and delete the <em>recording</em> on a short clock.
+          The recording is the part that carries consent risk, storage cost, and
+          discovery exposure; the written record carries most of the evidential value
+          at a fraction of the risk.
+        </p>
+        <p>
+          Decide the two periods separately on that basis, then confirm whether a firm
+          may instruct a longer period as well as a shorter one, and what happens to
+          records when an account closes.
         </p>
       </>
     ),
@@ -244,9 +259,15 @@ const sections: LegalSection[] = [
         <p>
           <strong>If you were a caller</strong>, we handled your information as a
           service provider on instructions from the law firm you called. That firm is
-          the right place to direct a request about it. If the firm asks us for help
-          in responding, we will assist — through its partner portal where the
-          information is available there, or directly where it is not.
+          the right place to direct a request about it, and we will help the firm
+          respond — through its partner portal where the information is available
+          there, or directly where it is not.
+        </p>
+        <p>
+          Because we hold that information on the firm&rsquo;s behalf rather than for
+          our own purposes, we do not delete or alter it on our own initiative. We act
+          on the firm&rsquo;s instruction, and we keep records for the periods set out
+          below.
         </p>
         <p>
           <strong>California residents.</strong> The CCPA gives you rights to know
@@ -273,11 +294,17 @@ const sections: LegalSection[] = [
           Connecticut and Utah statutes.
         </p>
         <p>
-          Our draft says instead that we assist the firm. That is softer, and it is
-          consistent with how the rest of the site speaks, but it may commit us to
-          work Alert has declined. Counsel should decide which position we take before
-          this publishes — and whether we need the other four states covered, which
-          depends on where our client firms operate rather than where we do.
+          <strong>Our position is now: assist, but do not delete on our own
+          initiative.</strong> We help the firm respond and act on its instruction,
+          which reaches the same practical outcome as Alert without a flat public
+          refusal to a caller who has just been through a bad week.
+        </p>
+        <p>
+          Counsel should confirm this survives the CCPA analysis. The internal-use
+          exception Alert relies on is the same one that supports us; the difference
+          is tone, not mechanism. Also confirm whether the other four states need
+          covering, which depends on where our client firms operate rather than where
+          we do.
         </p>
       </>
     ),

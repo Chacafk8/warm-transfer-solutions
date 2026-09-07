@@ -327,22 +327,38 @@ const sections: LegalSection[] = [
           appropriately trained people.
         </p>
         <p>
-          We do not warrant that every inquiry will be captured, screened, or
-          delivered without error, that the service will be uninterrupted, or that it
-          will produce any particular business result. Telephony, network, and
-          third-party systems fail in ways outside our control.
+          <strong>Beyond that promise we make no warranties.</strong> We do not
+          warrant that every inquiry will be captured, screened, or delivered without
+          error, that the service will be uninterrupted or error-free, or that it will
+          produce any particular business result. Telephony, network, and third-party
+          systems fail in ways outside our control.
         </p>
-        <p>This website is provided as is.</p>
+        <p>
+          To the fullest extent the law allows, we disclaim all implied warranties,
+          including merchantability, fitness for a particular purpose, and
+          non-infringement. This website is provided as is.
+        </p>
       </>
     ),
     flag: (
-      <p>
-        We have kept an affirmative &ldquo;reasonable care and skill&rdquo; warranty
-        rather than disclaiming everything. Alert disclaims all warranties in
-        capitals. Ours is a weaker legal position and a stronger commercial one, and
-        it is consistent with how the rest of the site talks. Counsel should confirm
-        that trade is acceptable.
-      </p>
+      <>
+        <p>
+          <strong>This is now a hybrid, and deliberately so.</strong> It keeps one
+          affirmative promise — reasonable care and skill — and disclaims everything
+          beyond it, including the implied warranties Alert disclaims wholesale.
+        </p>
+        <p>
+          The single promise is worth keeping. Our Services page tells firms our
+          people listen for distress and know when to slow down; disclaiming every
+          warranty two clicks away would be read aloud next to it. The disclaimer of
+          implied warranties costs us nothing we were relying on.
+        </p>
+        <p>
+          If counsel would rather disclaim everything in Alert&rsquo;s terms, the
+          marketing claims on the Services page should be softened at the same time
+          so the two documents do not contradict each other.
+        </p>
+      </>
     ),
   },
   {
