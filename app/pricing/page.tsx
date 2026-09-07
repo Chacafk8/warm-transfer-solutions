@@ -7,6 +7,7 @@ import { Faq, type FaqItem } from "@/components/faq";
 import { Button, Check, SectionHeading } from "@/components/ui";
 import { CTA_LABEL } from "@/lib/site";
 import {
+  NOT_BILLED,
   OVERNIGHT_SURCHARGE,
   OVERNIGHT_WINDOW,
   maxSavingPct,
@@ -33,6 +34,10 @@ const faqs: FaqItem[] = [
   {
     q: "What happens if I go over my included minutes?",
     a: "Nothing changes in how calls are handled. Minutes beyond your plan's allowance are billed at that plan's published per-minute rate — the same rate shown on this page. There is no penalty tier and no surprise reclassification.",
+  },
+  {
+    q: "Do I pay for robocalls and wrong numbers?",
+    a: `No. ${NOT_BILLED.join(", ")} are not billed to your account. Screening those out is part of the job — charging you for the time it takes would be charging you for our own filter. You pay for calls worth answering.`,
   },
   {
     q: "What does the 12-month term actually change?",
@@ -80,8 +85,8 @@ export default function PricingPage() {
       >
         <p>
           Base price, included minutes, per-minute rates on both terms, and the
-          overnight surcharge. Work out what you would pay before you speak to
-          anyone.
+          overnight surcharge — plus what we never bill you for. Work out what you
+          would pay before you speak to anyone.
         </p>
       </PageHero>
 
@@ -125,6 +130,26 @@ export default function PricingPage() {
                 the plans cross over as volume grows. The estimator shows exactly
                 where.
               </p>
+
+              <div className="mt-9 rounded-2xl bg-teal-50 p-6 ring-1 ring-inset ring-teal-500/20 sm:p-7">
+                <h3 className="text-base font-semibold text-teal-900">
+                  What we never bill you for
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {NOT_BILLED.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-full bg-white px-3.5 py-1.5 text-sm font-medium text-teal-800 ring-1 ring-inset ring-teal-500/20"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-4 text-[0.9375rem] leading-relaxed text-teal-900/70">
+                  Filtering these out is the job you are hiring us for. Billing you
+                  for the time it takes would be charging you for our own filter.
+                </p>
+              </div>
             </Reveal>
 
             <Reveal delay={140}>

@@ -4,6 +4,7 @@ import { useId, useMemo, useState } from "react";
 import Link from "next/link";
 import {
   ENTERPRISE_THRESHOLD,
+  NOT_BILLED,
   OVERNIGHT_SURCHARGE,
   OVERNIGHT_WINDOW,
   baseSaving,
@@ -85,18 +86,34 @@ export function PlansAndEstimator() {
           </div>
 
           <Reveal delay={340}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl bg-navy-50/80 px-6 py-5 text-center text-sm ring-1 ring-inset ring-navy-800/6">
-              <span className="flex items-center gap-2 font-semibold text-navy-800">
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              {/* What gets added */}
+              <div className="flex items-start gap-3.5 rounded-2xl bg-navy-50/80 px-6 py-5 ring-1 ring-inset ring-navy-800/6">
                 <MoonIcon />
-                Overnight calls
-              </span>
-              <span className="text-navy-800/65">
-                Calls handled between {OVERNIGHT_WINDOW} carry an additional{" "}
-                <strong className="font-semibold text-navy-800">
-                  {usd(OVERNIGHT_SURCHARGE, true)} per minute
-                </strong>
-                , on every plan and both terms.
-              </span>
+                <p className="text-sm leading-relaxed text-navy-800/65">
+                  <strong className="font-semibold text-navy-800">
+                    Overnight calls
+                  </strong>{" "}
+                  — calls handled between {OVERNIGHT_WINDOW} carry an additional{" "}
+                  <strong className="font-semibold text-navy-800">
+                    {usd(OVERNIGHT_SURCHARGE, true)} per minute
+                  </strong>
+                  , on every plan and both terms.
+                </p>
+              </div>
+
+              {/* What never gets billed at all */}
+              <div className="flex items-start gap-3.5 rounded-2xl bg-teal-50 px-6 py-5 ring-1 ring-inset ring-teal-500/20">
+                <ShieldIcon />
+                <p className="text-sm leading-relaxed text-teal-900/75">
+                  <strong className="font-semibold text-teal-900">
+                    Never billed
+                  </strong>{" "}
+                  — you are not charged for{" "}
+                  {NOT_BILLED.map((t) => t.toLowerCase()).join(", ")}. You pay for
+                  calls worth answering, not for junk that reaches the line.
+                </p>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -257,6 +274,16 @@ export function PlansAndEstimator() {
                     — calls handled between {OVERNIGHT_WINDOW} carry an additional{" "}
                     {usd(OVERNIGHT_SURCHARGE, true)} per minute, on every plan and
                     both terms. Not included in the totals above.
+                  </span>
+                </p>
+                <p className="mt-3 flex items-start gap-2.5 text-xs leading-relaxed text-navy-800/70">
+                  <ShieldIcon small />
+                  <span>
+                    <strong className="font-semibold text-navy-800">
+                      Never billed
+                    </strong>{" "}
+                    — {NOT_BILLED.map((t) => t.toLowerCase()).join(", ")} are not
+                    charged to your account.
                   </span>
                 </p>
                 <p className="mt-3 text-xs leading-relaxed text-navy-800/50">
@@ -431,6 +458,24 @@ function MoonIcon() {
       strokeLinejoin="round"
     >
       <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" />
+    </svg>
+  );
+}
+
+function ShieldIcon({ small = false }: { small?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={`mt-px shrink-0 text-teal-600 ${small ? "size-4" : "size-5"}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 3l7 3v5.5c0 4.2-2.9 7.9-7 9.5-4.1-1.6-7-5.3-7-9.5V6l7-3Z" />
+      <path d="m9 12 2 2 4-4" />
     </svg>
   );
 }

@@ -63,8 +63,18 @@ export const plans: Plan[] = [
  */
 export const OVERNIGHT_SURCHARGE = 0.15;
 
-/** The hours the overnight surcharge applies to. */
-export const OVERNIGHT_WINDOW = "10 PM and 6 AM";
+/**
+ * The hours the overnight surcharge applies to. "Pacific Time" rather than
+ * "PST" because PST is only in force outside daylight saving — on a billing
+ * page the year-round term avoids a dispute every summer.
+ */
+export const OVERNIGHT_WINDOW = "10 PM and 6 AM Pacific Time";
+
+/**
+ * Call types the firm is never billed for. Stated as policy — these are not
+ * modelled in the estimator because they never appear on an invoice.
+ */
+export const NOT_BILLED = ["Robocalls", "Spam calls", "Wrong numbers"] as const;
 
 export const rateFor = (plan: Plan, term: BillingTerm): Rate =>
   term === "annual" ? plan.annual : plan.monthly;
