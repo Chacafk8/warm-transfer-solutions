@@ -91,12 +91,17 @@ export function SiteHeader() {
             </nav>
 
             <div className="flex items-center gap-2 sm:gap-3">
+              {/* Opens in a new tab so a visitor mid-enquiry keeps the site.
+                  noopener/noreferrer because the target controls window.opener. */}
               <a
                 href={site.portalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors duration-200 hover:bg-white/8 hover:text-white lg:inline-flex"
               >
                 <LockIcon />
                 Portal Login
+                <span className="sr-only"> (opens in a new tab)</span>
               </a>
 
               <Link
@@ -161,10 +166,13 @@ export function SiteHeader() {
           ))}
           <a
             href={site.portalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/8 hover:text-white"
           >
             <LockIcon />
             Portal Login
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <Link
             href="/contact"
