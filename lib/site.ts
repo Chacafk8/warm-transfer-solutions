@@ -18,6 +18,8 @@ export const site = {
    */
   phone: "",
   coverage: "Flexible business-hour and after-hours options",
+  /** Existing-client portal, hosted separately from this site. */
+  portalUrl: "https://portal.warmtransfersolutions.com",
 } as const;
 
 /** Email is required; the site shows a pre-launch notice without it. */

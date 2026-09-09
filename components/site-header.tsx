@@ -90,7 +90,15 @@ export function SiteHeader() {
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
+              <a
+                href={site.portalUrl}
+                className="hidden items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors duration-200 hover:bg-white/8 hover:text-white lg:inline-flex"
+              >
+                <LockIcon />
+                Portal Login
+              </a>
+
               <Link
                 href="/contact"
                 className="group hidden items-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-12px_rgb(9_168_189/0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 sm:inline-flex"
@@ -151,9 +159,16 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <a
+            href={site.portalUrl}
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/8 hover:text-white"
+          >
+            <LockIcon />
+            Portal Login
+          </a>
           <Link
             href="/contact"
-            className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-brand-600 px-5 py-3 text-sm font-semibold text-white"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-brand-600 px-5 py-3 text-sm font-semibold text-white"
           >
             {CTA_LABEL}
             <Arrow />
@@ -161,5 +176,23 @@ export function SiteHeader() {
         </nav>
       </div>
     </header>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="size-4 shrink-0"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="4.5" y="10.5" width="15" height="10" rx="2.2" />
+      <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+    </svg>
   );
 }
