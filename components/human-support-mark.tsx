@@ -1,15 +1,48 @@
+import Image from "next/image";
+
 /**
- * Hero mark for the Services page: an agent wearing a headset, ringed by the
- * channels an inquiry arrives through. Drawn inline rather than shipped as an
- * image so it scales cleanly and inherits the brand palette.
+ * Hero mark for the Services page: an agent ringed by the channels an inquiry
+ * arrives through.
+ *
+ * Pass `photo` to show a real person in the centre — a photograph of an actual
+ * agent says more here than any drawing can, given what this page claims. With
+ * no photo it falls back to the drawn figure, so the hero is never empty.
  */
-export function HumanSupportMark({ className = "" }: { className?: string }) {
+export function HumanSupportMark({
+  className = "",
+  photo,
+  photoAlt = "One of our intake agents",
+}: {
+  className?: string;
+  photo?: string;
+  photoAlt?: string;
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      {photo && (
+        // Sits over the centre disc, matching its 88/420 radius.
+        <div className="absolute left-1/2 top-1/2 z-10 aspect-square w-[41.9%] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full ring-2 ring-teal-200/40">
+          <Image
+            src={photo}
+            alt={photoAlt}
+            fill
+            sizes="(min-width: 1024px) 180px, 0px"
+            className="object-cover"
+          />
+        </div>
+      )}
+      <MarkSvg hideFigure={Boolean(photo)} />
+    </div>
+  );
+}
+
+function MarkSvg({ hideFigure }: { hideFigure: boolean }) {
   return (
     <svg
       viewBox="0 0 420 420"
       role="img"
       aria-label="An intake agent wearing a headset, surrounded by the phone, message and email channels a caller can arrive through."
-      className={className}
+      className="w-full"
       fill="none"
     >
       <defs>
@@ -50,6 +83,7 @@ export function HumanSupportMark({ className = "" }: { className?: string }) {
       <circle cx="210" cy="210" r="88" stroke="#8fe9f3" strokeOpacity="0.35" strokeWidth="1.5" />
 
       {/* agent: headset band, ear cups, mic boom, head and shoulders */}
+      {!hideFigure && (
       <g stroke="#eaf3ff" strokeWidth="6.5" strokeLinecap="round" strokeLinejoin="round">
         {/* headset band over the crown */}
         <path d="M166 194v-8a44 44 0 0 1 88 0v8" />
@@ -63,6 +97,7 @@ export function HumanSupportMark({ className = "" }: { className?: string }) {
         <circle cx="210" cy="186" r="23" />
         <path d="M172 262a38 38 0 0 1 76 0" />
       </g>
+      )}
 
       {/* channel chips on the inner orbit */}
       <ChannelChip x={210} y={84} label="call">
