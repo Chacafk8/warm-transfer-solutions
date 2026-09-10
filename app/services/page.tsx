@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
+import { HumanSupportMark } from "@/components/human-support-mark";
 import { Reveal } from "@/components/reveal";
 import { CtaBand } from "@/components/cta-band";
 import { DashboardPreview } from "@/components/dashboard-preview";
@@ -110,6 +111,7 @@ export default function ServicesPage() {
             <span className="serif-accent text-gradient">around your firm</span>
           </>
         }
+        aside={<HumanSupportMark className="w-full max-w-[420px]" />}
         actions={
           <>
             <Button href="/contact" withArrow>

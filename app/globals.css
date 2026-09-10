@@ -237,6 +237,10 @@
   100% { transform: scale(1.6); opacity: 0; }
 }
 
+@keyframes hsm-spin {
+  to { transform: rotate(360deg); }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -246,3 +250,4 @@
 .animate-drift-slow { animation: drift-slow 24s ease-in-out infinite; }
 .animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
 .animate-marquee { animation: marquee 38s linear infinite; }
+.hsm-spin { animation: hsm-spin 70s linear infinite; }
