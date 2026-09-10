@@ -241,6 +241,10 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes hsm-orbit {
+  to { transform: rotate(-360deg); }
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -251,3 +255,7 @@
 .animate-pulse-ring { animation: pulse-ring 2.4s ease-out infinite; }
 .animate-marquee { animation: marquee 38s linear infinite; }
 .hsm-spin { animation: hsm-spin 70s linear infinite; }
+/* The chips drift the other way and slower than the outer ring; .hsm-upright
+   turns each icon back the same amount so it never reads upside down. */
+.hsm-orbit { animation: hsm-orbit 110s linear infinite; }
+.hsm-upright { animation: hsm-spin 110s linear infinite; }

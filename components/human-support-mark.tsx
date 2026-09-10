@@ -41,7 +41,7 @@ function MarkSvg({ hideFigure }: { hideFigure: boolean }) {
     <svg
       viewBox="0 0 420 420"
       role="img"
-      aria-label="An intake agent wearing a headset, surrounded by the phone, message and email channels a caller can arrive through."
+      aria-label="An intake agent wearing a headset, ringed by the call that comes in, the intake that gets written up, and the firm that decides."
       className="w-full"
       fill="none"
     >
@@ -99,53 +99,50 @@ function MarkSvg({ hideFigure }: { hideFigure: boolean }) {
       </g>
       )}
 
-      {/* four chips on the cardinal points of the inner orbit */}
-      <ChannelChip x={210} y={84} label="phone call">
-        <path
-          d="M-7-9h4l2 5-2.5 2a12 12 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1-9-7a2 2 0 0 1 2-2Z"
-          fill="#071A4D"
-        />
-      </ChannelChip>
+      {/* Three chips on a triangle around the inner orbit, drifting counter to
+          the outer ring. Clockwise from the top they trace an inquiry: the call
+          arrives, the intake is written up, the firm decides. */}
+      <g className="hsm-orbit" style={{ transformOrigin: "210px 210px" }}>
+        <ChannelChip x={210} y={84} label="phone call">
+          <path
+            d="M-7-9h4l2 5-2.5 2a12 12 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1-9-7a2 2 0 0 1 2-2Z"
+            fill="#071A4D"
+          />
+        </ChannelChip>
 
-      <ChannelChip x={336} y={210} label="email">
-        <g fill="none" stroke="#071A4D" strokeWidth="2.4" strokeLinejoin="round">
-          <rect x="-10" y="-7" width="20" height="14" rx="2.5" />
-          <path d="m-10-6 10 8 10-8" />
-        </g>
-      </ChannelChip>
-
-      {/* completed intake: a page being written up */}
-      <ChannelChip x={210} y={336} label="completed intake">
-        <g
-          fill="none"
-          stroke="#071A4D"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M4-11h-11a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V-5Z" />
-          <path d="M4-11v6h4" />
-          <path d="M-5-2h7M-5 3h9M-5 8h5" />
-        </g>
-        {/* pencil, crossing the lower right corner */}
-        <g transform="translate(7 6) rotate(-45)">
-          <rect x="-2.6" y="-7.5" width="5.2" height="11" rx="1.1" fill="#071A4D" />
-          <path d="M-2.6 3.5h5.2L0 7.6Z" fill="#071A4D" />
-        </g>
-      </ChannelChip>
-
-      {/* the firm's decision */}
-      <ChannelChip x={84} y={210} label="the firm decides">
-        <g fill="#071A4D">
-          {/* Head and handle are perpendicular, and the handle meets the middle
-              of the head — joined at the end it reads as a mallet, not a gavel. */}
-          <g transform="translate(-2 -4) rotate(-45)">
-            <rect x="-9" y="-4.3" width="18" height="8.6" rx="2.7" />
-            <rect x="-2.3" y="3.5" width="4.6" height="15" rx="2.3" />
+        {/* completed intake: a page being written up */}
+        <ChannelChip x={319} y={273} label="completed intake">
+          <g
+            fill="none"
+            stroke="#071A4D"
+            strokeWidth="2.2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4-11h-11a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V-5Z" />
+            <path d="M4-11v6h4" />
+            <path d="M-5-2h7M-5 3h9M-5 8h5" />
           </g>
-          <rect x="-11" y="10.5" width="22" height="4" rx="2" />
-        </g>
-      </ChannelChip>
+          {/* pencil, crossing the lower right corner */}
+          <g transform="translate(7 6) rotate(-45)">
+            <rect x="-2.6" y="-7.5" width="5.2" height="11" rx="1.1" fill="#071A4D" />
+            <path d="M-2.6 3.5h5.2L0 7.6Z" fill="#071A4D" />
+          </g>
+        </ChannelChip>
+
+        {/* the firm's decision */}
+        <ChannelChip x={101} y={273} label="the firm decides">
+          <g fill="#071A4D">
+            {/* Head and handle are perpendicular, and the handle meets the middle
+                of the head — joined at the end it reads as a mallet, not a gavel. */}
+            <g transform="translate(-2 -4) rotate(-45)">
+              <rect x="-9" y="-4.3" width="18" height="8.6" rx="2.7" />
+              <rect x="-2.3" y="3.5" width="4.6" height="15" rx="2.3" />
+            </g>
+            <rect x="-11" y="10.5" width="22" height="4" rx="2" />
+          </g>
+        </ChannelChip>
+      </g>
 
     </svg>
   );
@@ -168,7 +165,9 @@ function ChannelChip({
       <circle r="30" fill="#8fe9f3" fillOpacity="0.12" />
       <circle r="30" stroke="#8fe9f3" strokeOpacity="0.45" strokeWidth="1.5" />
       <circle r="22" fill="#8fe9f3" />
-      {children}
+      <g className="hsm-upright" style={{ transformOrigin: "0px 0px" }}>
+        {children}
+      </g>
     </g>
   );
 }
