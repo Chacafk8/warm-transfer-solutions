@@ -74,9 +74,9 @@ export default function HomePage() {
               </Reveal>
 
               <Reveal delay={80}>
-                <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-6xl lg:leading-[1.14]">
+                <h1 className="mt-6 text-4xl font-semibold leading-[1.16] text-white sm:text-5xl lg:text-6xl">
                   Professional call support for{" "}
-                  <span className="serif-accent text-gradient">growing</span> law
+                  <span className="serif-accent text-[0.9em] text-gradient">growing</span> law
                   firms
                 </h1>
               </Reveal>
