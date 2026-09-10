@@ -146,17 +146,9 @@ export default function ServicesPage() {
               The first voice they hear is a{" "}
               <span className="serif-accent text-teal-600">person</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-navy-800/65">
-              Nobody calls a law firm on a good day. They may be injured, out of
-              work, or facing something they have never had to deal with before —
-              and they have usually already told the story once to someone who
-              wasn&rsquo;t really listening. That is not a moment for a phone tree,
-              or for a bot asking them to state their reason for calling.
-            </p>
-            <p className="mt-5 text-lg leading-relaxed text-navy-800/65">
-              It is in our name. Your firm receives the caller&rsquo;s story
-              already gathered and written up — not a message slip with a name and
-              a number on it.
+            <p className="mt-7 text-2xl font-medium leading-snug text-navy-800/80 sm:text-[1.75rem]">
+              No bots, just a person, real live agents.{" "}
+              <span className="font-semibold text-teal-700">ALWAYS.</span>
             </p>
           </Reveal>
 
