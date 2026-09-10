@@ -136,7 +136,7 @@
      Serif's italic descenders (g, y, p) fall below that box at tight line
      heights and vanish, so extend it. Vertical padding on an inline element
      paints without affecting the line box, so this costs no layout. */
-  padding-bottom: 0.34em;
+  padding-bottom: 0.55em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
