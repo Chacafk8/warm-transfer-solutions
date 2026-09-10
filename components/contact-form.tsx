@@ -222,7 +222,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={isSending}
-        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-brand-600 px-7 py-4 text-[0.9375rem] font-semibold text-white shadow-[0_12px_32px_-12px_rgb(9_168_189/0.8)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
+        className="group mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-linear-to-r from-teal-500 to-brand-600 px-7 py-4 text-[0.9375rem] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 disabled:pointer-events-none disabled:opacity-60 sm:w-auto"
       >
         {isSending ? (
           <>
@@ -234,7 +234,7 @@ export function ContactForm() {
           </>
         ) : (
           <>
-            Tell Us About Your Firm
+            Get Started
             <Arrow />
           </>
         )}
