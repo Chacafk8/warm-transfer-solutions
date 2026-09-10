@@ -90,14 +90,6 @@
     text-wrap: pretty;
   }
 
-  /* Browsers give <button> the default arrow cursor while <a> gets a pointer,
-     so buttons read as inert next to links. Every button on this site is
-     interactive, so opt them all in. Disabled ones are excluded. */
-  button:not(:disabled),
-  [role="button"]:not([aria-disabled="true"]) {
-    cursor: pointer;
-  }
-
   :focus-visible {
     outline: 2px solid var(--color-teal-500);
     outline-offset: 3px;
