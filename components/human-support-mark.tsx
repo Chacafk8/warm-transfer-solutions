@@ -99,27 +99,54 @@ function MarkSvg({ hideFigure }: { hideFigure: boolean }) {
       </g>
       )}
 
-      {/* channel chips on the inner orbit */}
-      <ChannelChip x={210} y={84} label="call">
+      {/* four chips on the cardinal points of the inner orbit */}
+      <ChannelChip x={210} y={84} label="phone call">
         <path
           d="M-7-9h4l2 5-2.5 2a12 12 0 0 0 5.5 5.5l2-2.5 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1-9-7a2 2 0 0 1 2-2Z"
           fill="#071A4D"
         />
       </ChannelChip>
 
-      <ChannelChip x={104} y={272} label="message">
-        <path
-          d="M-9-8h18a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H-1l-6 5v-5h-2a2 2 0 0 1-2-2V-6a2 2 0 0 1 2-2Z"
-          fill="#071A4D"
-        />
-      </ChannelChip>
-
-      <ChannelChip x={316} y={272} label="email">
+      <ChannelChip x={336} y={210} label="email">
         <g fill="none" stroke="#071A4D" strokeWidth="2.4" strokeLinejoin="round">
           <rect x="-10" y="-7" width="20" height="14" rx="2.5" />
           <path d="m-10-6 10 8 10-8" />
         </g>
       </ChannelChip>
+
+      {/* completed intake: a page being written up */}
+      <ChannelChip x={210} y={336} label="completed intake">
+        <g
+          fill="none"
+          stroke="#071A4D"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M4-11h-11a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V-5Z" />
+          <path d="M4-11v6h4" />
+          <path d="M-5-2h7M-5 3h9M-5 8h5" />
+        </g>
+        {/* pencil, crossing the lower right corner */}
+        <g transform="translate(7 6) rotate(-45)">
+          <rect x="-2.6" y="-7.5" width="5.2" height="11" rx="1.1" fill="#071A4D" />
+          <path d="M-2.6 3.5h5.2L0 7.6Z" fill="#071A4D" />
+        </g>
+      </ChannelChip>
+
+      {/* the firm's decision */}
+      <ChannelChip x={84} y={210} label="the firm decides">
+        <g fill="#071A4D">
+          {/* mallet raised to the upper left, handle falling to the right */}
+          <g transform="translate(1 -3) rotate(40)">
+            <rect x="-12.5" y="-4.8" width="13.5" height="9.6" rx="2.9" />
+            <rect x="0.5" y="-1.9" width="12" height="3.8" rx="1.9" />
+          </g>
+          {/* the block it strikes */}
+          <rect x="-10.5" y="8" width="21" height="4.2" rx="2.1" />
+        </g>
+      </ChannelChip>
+
     </svg>
   );
 }
