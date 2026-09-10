@@ -116,6 +116,9 @@
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 0.94em;
+  /* Headings set -0.025em tracking, which is right for Inter and far too
+     tight for an italic serif — the swashes collide. Reset and open it up. */
+  letter-spacing: 0.02em;
 }
 
 /* Gradient text used for accent words in headings */

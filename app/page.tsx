@@ -295,11 +295,12 @@ export default function HomePage() {
 
             <Reveal delay={140}>
               <div className="grid grid-cols-2 gap-3">
-                {definable.map((item, i) => (
+                {definable.map((item) => (
                   <div
                     key={item}
-                    className="rounded-2xl bg-navy-50/80 px-4 py-4 text-sm font-medium text-navy-800/80 ring-1 ring-inset ring-navy-800/6 transition-colors duration-300 hover:bg-teal-50 hover:text-teal-800 hover:ring-teal-500/25"
-                    style={{ transitionDelay: `${i * 20}ms` }}
+                    /* Static labels, so deliberately no hover state — these are
+                       not clickable and should not suggest otherwise. */
+                    className="rounded-2xl bg-navy-50/80 px-4 py-4 text-sm font-medium text-navy-800/80 ring-1 ring-inset ring-navy-800/6"
                   >
                     {item}
                   </div>
