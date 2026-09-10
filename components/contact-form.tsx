@@ -15,7 +15,7 @@ const volumes = [
 type Status = "idle" | "sending" | "sent" | "error" | "fallback";
 
 const fieldClass =
-  "w-full rounded-2xl border border-navy-800/12 bg-white px-4 py-3.5 text-[0.9375rem] text-navy-800 shadow-xs transition-all duration-200 placeholder:text-navy-800/35 hover:border-navy-800/22 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/12";
+  "block w-full rounded-2xl border border-navy-800/12 bg-white px-4 py-3.5 text-[0.9375rem] text-navy-800 shadow-xs transition-all duration-200 placeholder:text-navy-800/35 hover:border-navy-800/22 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/12";
 
 const labelClass =
   "mb-2 block text-sm font-semibold text-navy-800";
@@ -237,7 +237,7 @@ export function ContactForm() {
         )}
       </button>
 
-      <p className="mt-4 text-xs leading-relaxed text-navy-800/45">
+      <p className="mt-7 text-xs leading-relaxed text-navy-800/45">
         By submitting this form you agree that we may contact you about your intake
         needs. We do not provide legal advice.
       </p>
