@@ -165,9 +165,19 @@ async function sendEmail({
   // Validate the actual recipient, which may come from the env override.
   const toIsUsable = to.includes("@") && !to.startsWith("YOUR-EMAIL");
 
-  if (!apiKey || !from || !toIsUsable) {
+  // Name the variable that is actually missing: "not configured" on its own
+  // sends you checking all three, and the recipient can be wrong rather than
+  // absent.
+  const unset: string[] = [];
+  if (!apiKey) unset.push("RESEND_API_KEY");
+  if (!from) unset.push("CONTACT_FROM_EMAIL");
+  if (!toIsUsable) unset.push(`CONTACT_TO_EMAIL (resolved to "${to}", which is not an address)`);
+
+  if (unset.length) {
     console.warn(
-      "[contact] Mail delivery is not configured. Set RESEND_API_KEY, CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL.",
+      `[contact] Mail delivery is not configured; missing: ${unset.join(", ")}. ` +
+        "Set these in Vercel under Project → Settings → Environment Variables, " +
+        "then redeploy — env changes do not reach a deployment that is already running.",
     );
     return "skipped";
   }
