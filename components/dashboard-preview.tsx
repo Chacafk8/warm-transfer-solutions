@@ -16,7 +16,7 @@ function useCountUp(target: number | null, active: boolean, duration = 1400) {
   useEffect(() => {
     if (!active || target === null) return;
 
-    // Honour reduced motion by jumping straight to the final value on the
+    // Honor reduced motion by jumping straight to the final value on the
     // first frame rather than animating up to it.
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

@@ -132,11 +132,16 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  /* The glyph is only visible where the background box covers it. Instrument
-     Serif's italic descenders (g, y, p) fall below that box at tight line
-     heights and vanish, so extend it. Vertical padding on an inline element
-     paints without affecting the line box, so this costs no layout. */
+  /* The glyph is only painted where the background box covers it, so the box
+     has to contain the ink on every side.
+     Below: italic descenders (g, y, p) fall past the line box.
+     Left and right: italic swashes have negative side bearings and overhang
+     the text origin, which sliced the leading g vertically. Horizontal padding
+     does shift an inline element, so it is canceled with equal negative
+     margins; vertical padding does not affect the line box at all. */
   padding-bottom: 0.55em;
+  padding-inline: 0.18em;
+  margin-inline: -0.18em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }

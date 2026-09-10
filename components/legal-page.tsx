@@ -1,7 +1,4 @@
-"use client";
-
 import type { ReactNode } from "react";
-import { useSearchParams } from "next/navigation";
 import { PageHero } from "./page-hero";
 import { Reveal } from "./reveal";
 
@@ -22,17 +19,16 @@ export function LegalPage({
   intro,
   sections,
   updated,
+  review = false,
 }: {
   eyebrow: string;
   title: string;
   intro: string;
   sections: LegalSection[];
   updated?: string;
+  /** Counsel notes. Only the /review routes pass this. */
+  review?: boolean;
 }) {
-  // Counsel notes are internal. They render only for someone who asks for them
-  // with ?review=1, never for an ordinary visitor.
-  const review = useSearchParams().get("review") === "1";
-
   return (
     <>
       <PageHero eyebrow={eyebrow} title={title}>

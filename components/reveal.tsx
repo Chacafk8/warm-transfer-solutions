@@ -13,7 +13,7 @@ type RevealProps = {
 /**
  * Fades + lifts its children into view once, on first intersection.
  * Falls back to visible immediately when IntersectionObserver is unavailable,
- * and the CSS honours prefers-reduced-motion.
+ * and the CSS honors prefers-reduced-motion.
  */
 export function Reveal({ children, delay = 0, className = "", as }: RevealProps) {
   const Tag = (as ?? "div") as ElementType;

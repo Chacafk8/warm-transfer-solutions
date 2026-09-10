@@ -126,7 +126,7 @@ export default function ServicesPage() {
         </p>
       </PageHero>
 
-      {/* --------------------------- Human-centred ------------------------- */}
+      {/* --------------------------- Human-centered ------------------------- */}
       {/* Light treatment: this sits directly under the dark hero, so a second
           navy section would run the top of the page into one long slab. */}
       <section className="relative overflow-hidden bg-navy-50/70 py-24 lg:py-32">
@@ -141,7 +141,7 @@ export default function ServicesPage() {
 
         <div className="container-page relative">
           <Reveal className="max-w-3xl">
-            <Eyebrow>Human-centred by design</Eyebrow>
+            <Eyebrow>Human-centered by design</Eyebrow>
             <h2 className="mt-6 text-3xl font-semibold text-navy-800 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               The first voice they hear is a{" "}
               <span className="serif-accent text-teal-600">person</span>
