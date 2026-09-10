@@ -30,7 +30,7 @@ export default function ContactPage() {
         title={
           <>
             Tell us about{" "}
-            <span className="font-serif italic text-gradient">your firm</span>
+            <span className="serif-accent text-gradient">your firm</span>
           </>
         }
       >

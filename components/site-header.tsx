@@ -97,7 +97,7 @@ export function SiteHeader() {
                 href={site.portalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors duration-200 hover:bg-white/8 hover:text-white lg:inline-flex"
+                className="hidden items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white hover:ring-white/30 lg:inline-flex"
               >
                 <LockIcon />
                 Portal Login
@@ -168,7 +168,7 @@ export function SiteHeader() {
             href={site.portalUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-colors hover:bg-white/8 hover:text-white"
+            className="mt-2 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-base font-medium text-navy-100/75 ring-1 ring-inset ring-white/15 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:text-white hover:ring-white/30"
           >
             <LockIcon />
             Portal Login

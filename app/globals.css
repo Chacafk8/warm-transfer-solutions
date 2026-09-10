@@ -108,6 +108,16 @@
   }
 }
 
+/* Italic serif accent words inside headings.
+   Set slightly smaller than the surrounding sans: Instrument Serif's italic
+   runs optically larger at the same nominal size, so matching font-size makes
+   the accent shout. 0.94em brings the two into balance. */
+@utility serif-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.94em;
+}
+
 /* Gradient text used for accent words in headings */
 @utility text-gradient {
   background-image: linear-gradient(

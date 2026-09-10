@@ -107,7 +107,7 @@ export default function ServicesPage() {
         title={
           <>
             Legal intake support built{" "}
-            <span className="font-serif italic text-gradient">around your firm</span>
+            <span className="serif-accent text-gradient">around your firm</span>
           </>
         }
         actions={
@@ -144,7 +144,7 @@ export default function ServicesPage() {
             <Eyebrow>Human-centred by design</Eyebrow>
             <h2 className="mt-6 text-3xl font-semibold text-navy-800 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               The first voice they hear is a{" "}
-              <span className="font-serif italic text-teal-600">person</span>
+              <span className="serif-accent text-teal-600">person</span>
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-navy-800/65">
               Nobody calls a law firm on a good day. They may be injured, out of
@@ -227,7 +227,7 @@ export default function ServicesPage() {
           <Reveal delay={280}>
             <p className="mt-14 text-center text-2xl font-semibold tracking-tight text-navy-800 sm:text-3xl">
               We automate the paperwork.{" "}
-              <span className="font-serif italic text-teal-600">
+              <span className="serif-accent text-teal-600">
                 Never the conversation.
               </span>
             </p>
@@ -274,7 +274,7 @@ export default function ServicesPage() {
               title={
                 <>
                   Built around your firm, not a{" "}
-                  <span className="font-serif italic text-teal-600">generic</span>{" "}
+                  <span className="serif-accent text-teal-600">generic</span>{" "}
                   script
                 </>
               }

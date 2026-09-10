@@ -135,7 +135,7 @@ export function PlansAndEstimator() {
               title={
                 <>
                   Price your own{" "}
-                  <span className="font-serif italic text-teal-600">volume</span>
+                  <span className="serif-accent text-teal-600">volume</span>
                 </>
               }
               align="center"

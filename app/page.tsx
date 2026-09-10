@@ -76,7 +76,7 @@ export default function HomePage() {
               <Reveal delay={80}>
                 <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-6xl lg:leading-[1.14]">
                   Professional call support for{" "}
-                  <span className="font-serif italic text-gradient">growing</span> law
+                  <span className="serif-accent text-gradient">growing</span> law
                   firms
                 </h1>
               </Reveal>
@@ -175,7 +175,7 @@ export default function HomePage() {
                 title={
                   <>
                     Let your staff focus on{" "}
-                    <span className="font-serif italic text-teal-600">
+                    <span className="serif-accent text-teal-600">
                       higher-value
                     </span>{" "}
                     work
@@ -274,7 +274,7 @@ export default function HomePage() {
                 title={
                   <>
                     Your process, followed{" "}
-                    <span className="font-serif italic text-teal-600">
+                    <span className="serif-accent text-teal-600">
                       consistently
                     </span>
                   </>

@@ -34,7 +34,7 @@ export function CtaBand({
                   {title ?? (
                     <>
                       Spend less time screening and more time{" "}
-                      <span className="font-serif italic text-gradient">
+                      <span className="serif-accent text-gradient">
                         building your firm
                       </span>
                     </>

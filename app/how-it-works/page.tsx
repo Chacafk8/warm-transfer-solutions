@@ -61,7 +61,7 @@ export default function HowItWorksPage() {
         title={
           <>
             Your firm sets the criteria. We handle the{" "}
-            <span className="font-serif italic text-gradient">first-level</span>{" "}
+            <span className="serif-accent text-gradient">first-level</span>{" "}
             screening.
           </>
         }
@@ -175,7 +175,7 @@ export default function HowItWorksPage() {
         title={
           <>
             Ready to define your{" "}
-            <span className="font-serif italic text-gradient">intake criteria</span>?
+            <span className="serif-accent text-gradient">intake criteria</span>?
           </>
         }
         body="We will walk through your case types, questions, and qualification standards, then build the workflow around them."

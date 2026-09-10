@@ -73,7 +73,7 @@ export default function PricingPage() {
         title={
           <>
             Every rate we charge,{" "}
-            <span className="font-serif italic text-gradient">published</span>
+            <span className="serif-accent text-gradient">published</span>
           </>
         }
         actions={
@@ -223,7 +223,7 @@ export default function PricingPage() {
         title={
           <>
             Not sure which plan fits your{" "}
-            <span className="font-serif italic text-gradient">volume</span>?
+            <span className="serif-accent text-gradient">volume</span>?
           </>
         }
         body="Tell us roughly how many calls you take a month and we will tell you which plan costs least — including if that is the smallest one."
