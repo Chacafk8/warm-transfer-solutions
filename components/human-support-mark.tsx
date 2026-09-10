@@ -137,13 +137,13 @@ function MarkSvg({ hideFigure }: { hideFigure: boolean }) {
       {/* the firm's decision */}
       <ChannelChip x={84} y={210} label="the firm decides">
         <g fill="#071A4D">
-          {/* mallet raised to the upper left, handle falling to the right */}
-          <g transform="translate(1 -3) rotate(40)">
-            <rect x="-12.5" y="-4.8" width="13.5" height="9.6" rx="2.9" />
-            <rect x="0.5" y="-1.9" width="12" height="3.8" rx="1.9" />
+          {/* Head and handle are perpendicular, and the handle meets the middle
+              of the head — joined at the end it reads as a mallet, not a gavel. */}
+          <g transform="translate(-2 -4) rotate(-45)">
+            <rect x="-9" y="-4.3" width="18" height="8.6" rx="2.7" />
+            <rect x="-2.3" y="3.5" width="4.6" height="15" rx="2.3" />
           </g>
-          {/* the block it strikes */}
-          <rect x="-10.5" y="8" width="21" height="4.2" rx="2.1" />
+          <rect x="-11" y="10.5" width="22" height="4" rx="2" />
         </g>
       </ChannelChip>
 
