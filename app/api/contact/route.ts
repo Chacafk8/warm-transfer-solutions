@@ -26,6 +26,28 @@ function clean(value: unknown, max = 2000) {
   return typeof value === "string" ? value.trim().slice(0, max) : "";
 }
 
+/**
+ * Reads an env var, dropping quotes that wrap the whole value. Quoting is
+ * dotenv syntax, but Vercel's field takes the raw string, so a value pasted
+ * from .env.example arrives with the quotes still attached and the mail
+ * provider rejects it. A display name may legitimately be quoted
+ * (`"Doe, Jane" <jane@firm.com>`), but then the value ends in `>`, not a
+ * quote, so only a fully wrapped value is unwrapped here.
+ */
+function env(name: string) {
+  const raw = process.env[name]?.trim() ?? "";
+  const unwrapped =
+    raw.length > 1 && (raw.startsWith('"') || raw.startsWith("'")) && raw.at(-1) === raw[0]
+      ? raw.slice(1, -1).trim()
+      : raw;
+
+  if (unwrapped !== raw) {
+    console.warn(`[contact] ${name} was wrapped in quotes; using the value inside them.`);
+  }
+
+  return unwrapped;
+}
+
 export async function POST(request: Request) {
   let body: Payload;
   try {
@@ -113,7 +135,7 @@ async function postToCrm(lead: {
   page: string;
   external_id: string;
 }): Promise<Delivery> {
-  const secret = process.env.LEADS_WEBHOOK_SECRET;
+  const secret = env("LEADS_WEBHOOK_SECRET");
 
   if (!secret) {
     console.warn("[contact] LEADS_WEBHOOK_SECRET is unset; skipping the CRM hand-off.");
@@ -158,9 +180,9 @@ async function sendEmail({
   volume: string;
   challenge: string;
 }): Promise<Delivery> {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL || site.email;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const apiKey = env("RESEND_API_KEY");
+  const to = env("CONTACT_TO_EMAIL") || site.email;
+  const from = env("CONTACT_FROM_EMAIL");
 
   // Validate the actual recipient, which may come from the env override.
   const toIsUsable = to.includes("@") && !to.startsWith("YOUR-EMAIL");
@@ -211,7 +233,13 @@ async function sendEmail({
 
     if (!response.ok) {
       const detail = await response.text();
-      console.error("[contact] Resend rejected the message:", response.status, detail);
+      // The from-address is the usual culprit and the status alone does not
+      // say so, so log it alongside the provider's own words.
+      console.error(
+        `[contact] Resend rejected the message: ${response.status} ${detail} ` +
+          `(from: ${JSON.stringify(from)}, to: ${JSON.stringify(to)}). ` +
+          "Check that the from-domain is verified at https://resend.com/domains.",
+      );
       return "failed";
     }
   } catch (error) {
