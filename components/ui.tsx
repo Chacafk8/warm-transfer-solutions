@@ -115,7 +115,7 @@ export function SectionHeading({
         </Eyebrow>
       )}
       <h2
-        className={`text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1] ${
+        className={`text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.18] ${
           isLight ? "text-white" : "text-navy-800"
         }`}
       >

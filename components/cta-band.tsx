@@ -30,7 +30,7 @@ export function CtaBand({
             <div className="relative grid items-center gap-10 lg:grid-cols-[1.5fr_1fr]">
               <div>
                 <Eyebrow tone="light">Start a conversation</Eyebrow>
-                <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+                <h2 className="mt-6 text-3xl font-semibold text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.18]">
                   {title ?? (
                     <>
                       Spend less time screening and more time{" "}

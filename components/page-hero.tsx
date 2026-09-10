@@ -20,7 +20,7 @@ export function PageHero({
       <div className="container-page relative">
         <Reveal className="max-w-3xl">
           <Eyebrow tone="light">{eyebrow}</Eyebrow>
-          <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.05]">
+          <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl lg:text-[3.5rem] lg:leading-[1.14]">
             {title}
           </h1>
           {children && (
