@@ -48,6 +48,33 @@ function env(name: string) {
   return unwrapped;
 }
 
+/**
+ * Returns a credential only if it can legally be sent as an HTTP header.
+ *
+ * A key copied out of a document or a chat can carry a smart quote or an
+ * invisible space. `fetch` then throws while building the request, so nothing
+ * is sent and the provider never gets the chance to say what was wrong — the
+ * visitor just sees a failure and the trace shows no outgoing call at all.
+ * Catching it here turns that into one line naming the character.
+ */
+function headerSafe(name: string, value: string) {
+  const chars = [...value];
+  const at = chars.findIndex((ch) => {
+    const code = ch.codePointAt(0) ?? 0;
+    return code > 0xff || code < 0x20 || code === 0x7f;
+  });
+
+  if (at === -1) return value;
+
+  const code = (chars[at].codePointAt(0) ?? 0).toString(16).toUpperCase().padStart(4, "0");
+  console.error(
+    `[contact] ${name} contains U+${code} at position ${at}, which cannot be sent in an ` +
+      "HTTP header. It was most likely copied from somewhere that substituted a smart " +
+      "quote or an invisible space. Retype the value in Vercel by hand and redeploy.",
+  );
+  return "";
+}
+
 export async function POST(request: Request) {
   let body: Payload;
   try {
@@ -135,7 +162,7 @@ async function postToCrm(lead: {
   page: string;
   external_id: string;
 }): Promise<Delivery> {
-  const secret = env("LEADS_WEBHOOK_SECRET");
+  const secret = headerSafe("LEADS_WEBHOOK_SECRET", env("LEADS_WEBHOOK_SECRET"));
 
   if (!secret) {
     console.warn("[contact] LEADS_WEBHOOK_SECRET is unset; skipping the CRM hand-off.");
@@ -180,7 +207,7 @@ async function sendEmail({
   volume: string;
   challenge: string;
 }): Promise<Delivery> {
-  const apiKey = env("RESEND_API_KEY");
+  const apiKey = headerSafe("RESEND_API_KEY", env("RESEND_API_KEY"));
   const to = env("CONTACT_TO_EMAIL") || site.email;
   const from = env("CONTACT_FROM_EMAIL");
 
